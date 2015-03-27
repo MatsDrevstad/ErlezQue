@@ -1,0 +1,1351 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="BillModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Alc">
+          <Key>
+            <PropertyRef Name="PostId" />
+            <PropertyRef Name="AlcCount" />
+          </Key>
+          <Property Name="PostId" Type="int" Nullable="false" />
+          <Property Name="AlcCount" Type="int" Nullable="false" />
+          <Property Name="AlcType" Type="varchar" MaxLength="50" />
+          <Property Name="Type" Type="varchar" MaxLength="50" />
+          <Property Name="Percentage" Type="varchar" MaxLength="50" />
+          <Property Name="BaseAmount" Type="varchar" MaxLength="50" />
+          <Property Name="Amount" Type="varchar" MaxLength="50" />
+          <Property Name="TaxType" Type="varchar" MaxLength="50" />
+          <Property Name="TaxCategory" Type="varchar" MaxLength="50" />
+          <Property Name="TaxRate" Type="varchar" MaxLength="50" />
+          <Property Name="TaxAmount" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Bet">
+          <Key>
+            <PropertyRef Name="PostId" />
+          </Key>
+          <Property Name="PostId" Type="int" Nullable="false" />
+          <Property Name="DueDate" Type="varchar" MaxLength="50" />
+          <Property Name="DueDays" Type="varchar" MaxLength="50" />
+          <Property Name="InvCurrency" Type="varchar" MaxLength="50" />
+          <Property Name="TaxCurrency" Type="varchar" MaxLength="50" />
+          <Property Name="TaxCurrencyRate" Type="varchar" MaxLength="50" />
+          <Property Name="TaxCurrencyRateDate" Type="varchar" MaxLength="50" />
+          <Property Name="ExemptFromTax" Type="varchar" MaxLength="50" />
+          <Property Name="PenaltySurchargePercent" Type="varchar" MaxLength="50" />
+          <Property Name="PaymentInstruction" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Company">
+          <Key>
+            <PropertyRef Name="PostId" />
+            <PropertyRef Name="CompanyCount" />
+          </Key>
+          <Property Name="PostId" Type="int" Nullable="false" />
+          <Property Name="CompanyCount" Type="int" Nullable="false" />
+          <Property Name="CompanyQual" Type="varchar" MaxLength="50" />
+          <Property Name="PartyIdentification" Type="varchar" MaxLength="50" />
+          <Property Name="VatNo" Type="varchar" MaxLength="50" />
+          <Property Name="OrgNo" Type="varchar" MaxLength="50" />
+          <Property Name="CustomerNumber" Type="varchar" MaxLength="50" />
+          <Property Name="SellerUniqueIdentification" Type="varchar" MaxLength="50" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="ContactName" Type="varchar" MaxLength="50" />
+          <Property Name="ContactTel" Type="varchar" MaxLength="50" />
+          <Property Name="ContactEmail" Type="varchar" MaxLength="50" />
+          <Property Name="ContactFax" Type="varchar" MaxLength="50" />
+          <Property Name="StreetName" Type="varchar" MaxLength="50" />
+          <Property Name="AdditionalStreetName" Type="varchar" MaxLength="50" />
+          <Property Name="ZipCode" Type="varchar" MaxLength="50" />
+          <Property Name="City" Type="varchar" MaxLength="50" />
+          <Property Name="Country" Type="varchar" MaxLength="50" />
+          <Property Name="Box" Type="varchar" MaxLength="50" />
+          <Property Name="Department" Type="varchar" MaxLength="50" />
+          <Property Name="BankCode" Type="varchar" MaxLength="50" />
+          <Property Name="BankName" Type="varchar" MaxLength="50" />
+          <Property Name="BankAccount" Type="varchar" MaxLength="50" />
+          <Property Name="Iban" Type="varchar" MaxLength="50" />
+          <Property Name="PlusGiro" Type="varchar" MaxLength="50" />
+          <Property Name="BankGiro" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Enclosure">
+          <Key>
+            <PropertyRef Name="PostId" />
+            <PropertyRef Name="EnclosureCount" />
+          </Key>
+          <Property Name="PostId" Type="int" Nullable="false" />
+          <Property Name="EnclosureCount" Type="int" Nullable="false" />
+          <Property Name="MediaType" Type="varchar" MaxLength="50" />
+          <Property Name="FileName" Type="varchar" MaxLength="250" />
+          <Property Name="FileCreationDate" Type="varchar" MaxLength="50" />
+          <Property Name="EnclosedDataFormat" Type="varchar" MaxLength="50" />
+          <Property Name="EnclosedData" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="Head">
+          <Key>
+            <PropertyRef Name="PostId" />
+          </Key>
+          <Property Name="PostId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IAID" Type="varchar" MaxLength="50" />
+          <Property Name="Flow" Type="varchar" MaxLength="50" />
+          <Property Name="InvoiceNo" Type="varchar" MaxLength="50" />
+          <Property Name="OutputType" Type="varchar" MaxLength="50" />
+          <Property Name="UpdateCode" Type="int" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="UpdateDate" Type="datetime" />
+          <Property Name="InvoiceType" Type="varchar" MaxLength="5" />
+          <Property Name="InvoiceDate" Type="varchar" MaxLength="50" />
+          <Property Name="RealDelDate" Type="varchar" MaxLength="50" />
+          <Property Name="RealDelShip" Type="varchar" MaxLength="50" />
+          <Property Name="HorizonStartDate" Type="varchar" MaxLength="50" />
+          <Property Name="HorizonEndDate" Type="varchar" MaxLength="50" />
+          <Property Name="PeriodFrom" Type="varchar" MaxLength="50" />
+          <Property Name="PeriodTo" Type="varchar" MaxLength="50" />
+          <Property Name="CreditReason" Type="varchar" MaxLength="50" />
+          <Property Name="MaterialType" Type="varchar" MaxLength="50" />
+          <Property Name="GUID" Type="varchar" MaxLength="50" />
+          <Property Name="Timestamp" Type="varchar" MaxLength="50" />
+          <Property Name="ErpVersion" Type="varchar" MaxLength="50" />
+          <Property Name="isTest" Type="varchar" MaxLength="1" />
+          <Property Name="isDeleted" Type="bit" />
+          <Property Name="CorporateGroup" Type="varchar" MaxLength="50" />
+          <Property Name="Erp" Type="varchar" MaxLength="50" />
+          <Property Name="Version" Type="varchar" MaxLength="50" />
+          <Property Name="FromID" Type="int" />
+          <Property Name="Hash" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="HeadRef">
+          <Key>
+            <PropertyRef Name="PostId" />
+            <PropertyRef Name="HeadRefCount" />
+          </Key>
+          <Property Name="PostId" Type="int" Nullable="false" />
+          <Property Name="HeadRefCount" Type="int" Nullable="false" />
+          <Property Name="HeadRefQual" Type="varchar" MaxLength="50" />
+          <Property Name="HeadRef" Type="varchar" MaxLength="200" />
+          <Property Name="HeadRefDate" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Line">
+          <Key>
+            <PropertyRef Name="LineId" />
+          </Key>
+          <Property Name="PostId" Type="int" Nullable="false" />
+          <Property Name="LineId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LineCount" Type="int" Nullable="false" />
+          <Property Name="LineNumber" Type="varchar" MaxLength="50" />
+          <Property Name="GtinNo" Type="varchar" MaxLength="50" />
+          <Property Name="SellerPartNo" Type="varchar" MaxLength="50" />
+          <Property Name="BuyerPartNo" Type="varchar" MaxLength="50" />
+          <Property Name="ManufPartNo" Type="varchar" MaxLength="50" />
+          <Property Name="QuantityInvoiced" Type="varchar" MaxLength="50" />
+          <Property Name="QuantityInvoicedUnit" Type="varchar" MaxLength="50" />
+          <Property Name="QuantityDelivered" Type="varchar" MaxLength="50" />
+          <Property Name="QuantityDeliveredUnit" Type="varchar" MaxLength="50" />
+          <Property Name="QuantityDespatched" Type="varchar" MaxLength="50" />
+          <Property Name="QuantityDespatchedUnit" Type="varchar" MaxLength="50" />
+          <Property Name="QuantityReceived" Type="varchar" MaxLength="50" />
+          <Property Name="QuantityReceivedUnit" Type="varchar" MaxLength="50" />
+          <Property Name="LineAmount" Type="varchar" MaxLength="50" />
+          <Property Name="Description" Type="varchar" MaxLength="50" />
+          <Property Name="Description2" Type="varchar" MaxLength="50" />
+          <Property Name="CreditReason" Type="varchar" MaxLength="50" />
+          <Property Name="Revision" Type="varchar" MaxLength="50" />
+          <Property Name="Origin" Type="varchar" MaxLength="50" />
+          <Property Name="DelDate" Type="varchar" MaxLength="50" />
+          <Property Name="FirstDelDate" Type="varchar" MaxLength="50" />
+          <Property Name="LastDelDate" Type="varchar" MaxLength="50" />
+          <Property Name="LineType" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="LineAlc">
+          <Key>
+            <PropertyRef Name="LineId" />
+            <PropertyRef Name="LineAlcCount" />
+          </Key>
+          <Property Name="LineId" Type="bigint" Nullable="false" />
+          <Property Name="LineAlcCount" Type="int" Nullable="false" />
+          <Property Name="AlcType" Type="varchar" MaxLength="50" />
+          <Property Name="Type" Type="varchar" MaxLength="50" />
+          <Property Name="Percentage" Type="varchar" MaxLength="50" />
+          <Property Name="Amount" Type="varchar" MaxLength="50" />
+          <Property Name="TaxType" Type="varchar" MaxLength="50" />
+          <Property Name="TaxCategory" Type="varchar" MaxLength="50" />
+          <Property Name="TaxRate" Type="varchar" MaxLength="50" />
+          <Property Name="TaxAmount" Type="varchar" MaxLength="50" />
+          <Property Name="BaseAmount" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="LinePri">
+          <Key>
+            <PropertyRef Name="LineId" />
+            <PropertyRef Name="LinePriCount" />
+          </Key>
+          <Property Name="LineId" Type="bigint" Nullable="false" />
+          <Property Name="LinePriCount" Type="int" Nullable="false" />
+          <Property Name="PriceQualifier" Type="varchar" MaxLength="50" />
+          <Property Name="PriceType" Type="varchar" MaxLength="50" />
+          <Property Name="PriceTypeQualifier" Type="varchar" MaxLength="50" />
+          <Property Name="LinePri" Type="varchar" MaxLength="50" />
+          <Property Name="LinePriBase" Type="varchar" MaxLength="50" />
+          <Property Name="LineUnit" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="LineRef">
+          <Key>
+            <PropertyRef Name="LineId" />
+            <PropertyRef Name="LineRefCount" />
+          </Key>
+          <Property Name="LineId" Type="bigint" Nullable="false" />
+          <Property Name="LineRefCount" Type="int" Nullable="false" />
+          <Property Name="LineRefQual" Type="varchar" MaxLength="50" />
+          <Property Name="LineRef" Type="varchar" MaxLength="200" />
+          <Property Name="LineRefLin" Type="varchar" MaxLength="50" />
+          <Property Name="LineRefDate" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="LineTax">
+          <Key>
+            <PropertyRef Name="LineId" />
+            <PropertyRef Name="LineTaxCount" />
+          </Key>
+          <Property Name="LineId" Type="bigint" Nullable="false" />
+          <Property Name="LineTaxCount" Type="int" Nullable="false" />
+          <Property Name="LineTaxType" Type="varchar" MaxLength="50" />
+          <Property Name="LineTaxCategory" Type="varchar" MaxLength="50" />
+          <Property Name="LineTaxRate" Type="varchar" MaxLength="50" />
+          <Property Name="LineTaxAmount" Type="varchar" MaxLength="50" />
+          <Property Name="ExemptFromTax" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Sum">
+          <Key>
+            <PropertyRef Name="PostId" />
+          </Key>
+          <Property Name="PostId" Type="int" Nullable="false" />
+          <Property Name="TotalQuantity" Type="varchar" MaxLength="50" />
+          <Property Name="TotalLines" Type="varchar" MaxLength="50" />
+          <Property Name="TotalAmount" Type="varchar" MaxLength="50" />
+          <Property Name="TotalAmountTaxCur" Type="varchar" MaxLength="50" />
+          <Property Name="LineAmount" Type="varchar" MaxLength="50" />
+          <Property Name="TaxableAmount" Type="varchar" MaxLength="50" />
+          <Property Name="TaxableAmountTaxCur" Type="varchar" MaxLength="50" />
+          <Property Name="TaxableAmountExclExemption" Type="varchar" MaxLength="50" />
+          <Property Name="TaxableAmountExclExemptionTaxCur" Type="varchar" MaxLength="50" />
+          <Property Name="TaxAmount" Type="varchar" MaxLength="50" />
+          <Property Name="TaxAmountTaxCur" Type="varchar" MaxLength="50" />
+          <Property Name="AlcAmount" Type="varchar" MaxLength="50" />
+          <Property Name="AdjustmentAmount" Type="varchar" MaxLength="50" />
+          <Property Name="NonTaxableAmount" Type="varchar" MaxLength="50" />
+          <Property Name="ExemptionAmount" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="SumTax">
+          <Key>
+            <PropertyRef Name="PostId" />
+            <PropertyRef Name="SumTaxCount" />
+          </Key>
+          <Property Name="PostId" Type="int" Nullable="false" />
+          <Property Name="SumTaxCount" Type="int" Nullable="false" />
+          <Property Name="SumTaxType" Type="varchar" MaxLength="50" />
+          <Property Name="SumTaxCategory" Type="varchar" MaxLength="50" />
+          <Property Name="SumTaxRate" Type="varchar" MaxLength="50" />
+          <Property Name="SumTaxableAmount" Type="varchar" MaxLength="50" />
+          <Property Name="SumTaxAmount" Type="varchar" MaxLength="50" />
+          <Property Name="TaxCurrencyTaxAmount" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Tdt">
+          <Key>
+            <PropertyRef Name="PostId" />
+            <PropertyRef Name="TdtCount" />
+          </Key>
+          <Property Name="PostId" Type="int" Nullable="false" />
+          <Property Name="TdtCount" Type="int" Nullable="false" />
+          <Property Name="TdtMethod" Type="varchar" MaxLength="50" />
+          <Property Name="TdtDescription" Type="varchar" MaxLength="50" />
+          <Property Name="TdtCarrierName" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Tod">
+          <Key>
+            <PropertyRef Name="PostId" />
+            <PropertyRef Name="TodCount" />
+          </Key>
+          <Property Name="PostId" Type="int" Nullable="false" />
+          <Property Name="TodCount" Type="int" Nullable="false" />
+          <Property Name="TodTerms" Type="varchar" MaxLength="50" />
+          <Property Name="TodDescription" Type="varchar" MaxLength="50" />
+          <Property Name="TodTermsLoc" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_Alc_Head">
+          <End Role="Head" Type="Self.Head" Multiplicity="1" />
+          <End Role="Alc" Type="Self.Alc" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Head">
+              <PropertyRef Name="PostId" />
+            </Principal>
+            <Dependent Role="Alc">
+              <PropertyRef Name="PostId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Bet_Head">
+          <End Role="Head" Type="Self.Head" Multiplicity="1" />
+          <End Role="Bet" Type="Self.Bet" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Head">
+              <PropertyRef Name="PostId" />
+            </Principal>
+            <Dependent Role="Bet">
+              <PropertyRef Name="PostId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Company_Head">
+          <End Role="Head" Type="Self.Head" Multiplicity="1" />
+          <End Role="Company" Type="Self.Company" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Head">
+              <PropertyRef Name="PostId" />
+            </Principal>
+            <Dependent Role="Company">
+              <PropertyRef Name="PostId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Enclosure_Head">
+          <End Role="Head" Type="Self.Head" Multiplicity="1" />
+          <End Role="Enclosure" Type="Self.Enclosure" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Head">
+              <PropertyRef Name="PostId" />
+            </Principal>
+            <Dependent Role="Enclosure">
+              <PropertyRef Name="PostId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HeadRef_Head">
+          <End Role="Head" Type="Self.Head" Multiplicity="1" />
+          <End Role="HeadRef" Type="Self.HeadRef" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Head">
+              <PropertyRef Name="PostId" />
+            </Principal>
+            <Dependent Role="HeadRef">
+              <PropertyRef Name="PostId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Line_Head">
+          <End Role="Head" Type="Self.Head" Multiplicity="1" />
+          <End Role="Line" Type="Self.Line" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Head">
+              <PropertyRef Name="PostId" />
+            </Principal>
+            <Dependent Role="Line">
+              <PropertyRef Name="PostId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LineAlc_Line">
+          <End Role="Line" Type="Self.Line" Multiplicity="1" />
+          <End Role="LineAlc" Type="Self.LineAlc" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Line">
+              <PropertyRef Name="LineId" />
+            </Principal>
+            <Dependent Role="LineAlc">
+              <PropertyRef Name="LineId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LinePri_Line">
+          <End Role="Line" Type="Self.Line" Multiplicity="1" />
+          <End Role="LinePri" Type="Self.LinePri" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Line">
+              <PropertyRef Name="LineId" />
+            </Principal>
+            <Dependent Role="LinePri">
+              <PropertyRef Name="LineId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LineRef_Line">
+          <End Role="Line" Type="Self.Line" Multiplicity="1" />
+          <End Role="LineRef" Type="Self.LineRef" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Line">
+              <PropertyRef Name="LineId" />
+            </Principal>
+            <Dependent Role="LineRef">
+              <PropertyRef Name="LineId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LineTax_Line">
+          <End Role="Line" Type="Self.Line" Multiplicity="1" />
+          <End Role="LineTax" Type="Self.LineTax" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Line">
+              <PropertyRef Name="LineId" />
+            </Principal>
+            <Dependent Role="LineTax">
+              <PropertyRef Name="LineId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sum_Head">
+          <End Role="Head" Type="Self.Head" Multiplicity="1" />
+          <End Role="Sum" Type="Self.Sum" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Head">
+              <PropertyRef Name="PostId" />
+            </Principal>
+            <Dependent Role="Sum">
+              <PropertyRef Name="PostId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SumTax_Head">
+          <End Role="Head" Type="Self.Head" Multiplicity="1" />
+          <End Role="SumTax" Type="Self.SumTax" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Head">
+              <PropertyRef Name="PostId" />
+            </Principal>
+            <Dependent Role="SumTax">
+              <PropertyRef Name="PostId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tdt_Head">
+          <End Role="Head" Type="Self.Head" Multiplicity="1" />
+          <End Role="Tdt" Type="Self.Tdt" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Head">
+              <PropertyRef Name="PostId" />
+            </Principal>
+            <Dependent Role="Tdt">
+              <PropertyRef Name="PostId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tod_Head">
+          <End Role="Head" Type="Self.Head" Multiplicity="1" />
+          <End Role="Tod" Type="Self.Tod" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Head">
+              <PropertyRef Name="PostId" />
+            </Principal>
+            <Dependent Role="Tod">
+              <PropertyRef Name="PostId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="BillModelStoreContainer">
+          <EntitySet Name="Alc" EntityType="Self.Alc" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Bet" EntityType="Self.Bet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Company" EntityType="Self.Company" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Enclosure" EntityType="Self.Enclosure" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Head" EntityType="Self.Head" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HeadRef" EntityType="Self.HeadRef" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Line" EntityType="Self.Line" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LineAlc" EntityType="Self.LineAlc" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LinePri" EntityType="Self.LinePri" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LineRef" EntityType="Self.LineRef" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LineTax" EntityType="Self.LineTax" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sum" EntityType="Self.Sum" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SumTax" EntityType="Self.SumTax" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tdt" EntityType="Self.Tdt" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tod" EntityType="Self.Tod" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Alc_Head" Association="Self.FK_Alc_Head">
+            <End Role="Head" EntitySet="Head" />
+            <End Role="Alc" EntitySet="Alc" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Bet_Head" Association="Self.FK_Bet_Head">
+            <End Role="Head" EntitySet="Head" />
+            <End Role="Bet" EntitySet="Bet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Company_Head" Association="Self.FK_Company_Head">
+            <End Role="Head" EntitySet="Head" />
+            <End Role="Company" EntitySet="Company" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Enclosure_Head" Association="Self.FK_Enclosure_Head">
+            <End Role="Head" EntitySet="Head" />
+            <End Role="Enclosure" EntitySet="Enclosure" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HeadRef_Head" Association="Self.FK_HeadRef_Head">
+            <End Role="Head" EntitySet="Head" />
+            <End Role="HeadRef" EntitySet="HeadRef" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Line_Head" Association="Self.FK_Line_Head">
+            <End Role="Head" EntitySet="Head" />
+            <End Role="Line" EntitySet="Line" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LineAlc_Line" Association="Self.FK_LineAlc_Line">
+            <End Role="Line" EntitySet="Line" />
+            <End Role="LineAlc" EntitySet="LineAlc" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LinePri_Line" Association="Self.FK_LinePri_Line">
+            <End Role="Line" EntitySet="Line" />
+            <End Role="LinePri" EntitySet="LinePri" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LineRef_Line" Association="Self.FK_LineRef_Line">
+            <End Role="Line" EntitySet="Line" />
+            <End Role="LineRef" EntitySet="LineRef" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LineTax_Line" Association="Self.FK_LineTax_Line">
+            <End Role="Line" EntitySet="Line" />
+            <End Role="LineTax" EntitySet="LineTax" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sum_Head" Association="Self.FK_Sum_Head">
+            <End Role="Head" EntitySet="Head" />
+            <End Role="Sum" EntitySet="Sum" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SumTax_Head" Association="Self.FK_SumTax_Head">
+            <End Role="Head" EntitySet="Head" />
+            <End Role="SumTax" EntitySet="SumTax" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tdt_Head" Association="Self.FK_Tdt_Head">
+            <End Role="Head" EntitySet="Head" />
+            <End Role="Tdt" EntitySet="Tdt" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tod_Head" Association="Self.FK_Tod_Head">
+            <End Role="Head" EntitySet="Head" />
+            <End Role="Tod" EntitySet="Tod" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BillModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Alc">
+          <Key>
+            <PropertyRef Name="PostId" />
+            <PropertyRef Name="AlcCount" />
+          </Key>
+          <Property Name="PostId" Type="Int32" Nullable="false" />
+          <Property Name="AlcCount" Type="Int32" Nullable="false" />
+          <Property Name="AlcType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Percentage" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BaseAmount" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Amount" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TaxType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TaxCategory" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TaxRate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TaxAmount" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Head" Relationship="Self.FK_Alc_Head" FromRole="Alc" ToRole="Head" />
+        </EntityType>
+        <EntityType Name="Bet">
+          <Key>
+            <PropertyRef Name="PostId" />
+          </Key>
+          <Property Name="PostId" Type="Int32" Nullable="false" />
+          <Property Name="DueDate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DueDays" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="InvCurrency" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TaxCurrency" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TaxCurrencyRate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TaxCurrencyRateDate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ExemptFromTax" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PenaltySurchargePercent" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PaymentInstruction" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Head" Relationship="Self.FK_Bet_Head" FromRole="Bet" ToRole="Head" />
+        </EntityType>
+        <EntityType Name="Company">
+          <Key>
+            <PropertyRef Name="PostId" />
+            <PropertyRef Name="CompanyCount" />
+          </Key>
+          <Property Name="PostId" Type="Int32" Nullable="false" />
+          <Property Name="CompanyCount" Type="Int32" Nullable="false" />
+          <Property Name="CompanyQual" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PartyIdentification" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="VatNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OrgNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CustomerNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SellerUniqueIdentification" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ContactName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ContactTel" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ContactEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ContactFax" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="StreetName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AdditionalStreetName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ZipCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Box" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Department" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BankCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BankName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BankAccount" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Iban" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PlusGiro" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BankGiro" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Head" Relationship="Self.FK_Company_Head" FromRole="Company" ToRole="Head" />
+        </EntityType>
+        <EntityType Name="Enclosure">
+          <Key>
+            <PropertyRef Name="PostId" />
+            <PropertyRef Name="EnclosureCount" />
+          </Key>
+          <Property Name="PostId" Type="Int32" Nullable="false" />
+          <Property Name="EnclosureCount" Type="Int32" Nullable="false" />
+          <Property Name="MediaType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FileName" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="FileCreationDate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EnclosedDataFormat" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EnclosedData" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Head" Relationship="Self.FK_Enclosure_Head" FromRole="Enclosure" ToRole="Head" />
+        </EntityType>
+        <EntityType Name="Head">
+          <Key>
+            <PropertyRef Name="PostId" />
+          </Key>
+          <Property Name="PostId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IAID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Flow" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="InvoiceNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OutputType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UpdateCode" Type="Int32" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+          <Property Name="InvoiceType" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="InvoiceDate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RealDelDate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RealDelShip" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="HorizonStartDate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="HorizonEndDate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PeriodFrom" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PeriodTo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreditReason" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MaterialType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="GUID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Timestamp" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ErpVersion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="isTest" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="isDeleted" Type="Boolean" />
+          <Property Name="CorporateGroup" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Erp" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Version" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FromID" Type="Int32" />
+          <Property Name="Hash" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Alcs" Relationship="Self.FK_Alc_Head" FromRole="Head" ToRole="Alc" />
+          <NavigationProperty Name="Bet" Relationship="Self.FK_Bet_Head" FromRole="Head" ToRole="Bet" />
+          <NavigationProperty Name="Companies" Relationship="Self.FK_Company_Head" FromRole="Head" ToRole="Company" />
+          <NavigationProperty Name="Enclosures" Relationship="Self.FK_Enclosure_Head" FromRole="Head" ToRole="Enclosure" />
+          <NavigationProperty Name="HeadRefs" Relationship="Self.FK_HeadRef_Head" FromRole="Head" ToRole="HeadRef" />
+          <NavigationProperty Name="Lines" Relationship="Self.FK_Line_Head" FromRole="Head" ToRole="Line" />
+          <NavigationProperty Name="Sum" Relationship="Self.FK_Sum_Head" FromRole="Head" ToRole="Sum" />
+          <NavigationProperty Name="SumTaxes" Relationship="Self.FK_SumTax_Head" FromRole="Head" ToRole="SumTax" />
+          <NavigationProperty Name="Tdts" Relationship="Self.FK_Tdt_Head" FromRole="Head" ToRole="Tdt" />
+          <NavigationProperty Name="Tods" Relationship="Self.FK_Tod_Head" FromRole="Head" ToRole="Tod" />
+        </EntityType>
+        <EntityType Name="HeadRef">
+          <Key>
+            <PropertyRef Name="PostId" />
+            <PropertyRef Name="HeadRefCount" />
+          </Key>
+          <Property Name="PostId" Type="Int32" Nullable="false" />
+          <Property Name="HeadRefCount" Type="Int32" Nullable="false" />
+          <Property Name="HeadRefQual" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="HeadRef1" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="HeadRefDate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Head" Relationship="Self.FK_HeadRef_Head" FromRole="HeadRef" ToRole="Head" />
+        </EntityType>
+        <EntityType Name="Line">
+          <Key>
+            <PropertyRef Name="LineId" />
+          </Key>
+          <Property Name="PostId" Type="Int32" Nullable="false" />
+          <Property Name="LineId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LineCount" Type="Int32" Nullable="false" />
+          <Property Name="LineNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="GtinNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SellerPartNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BuyerPartNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ManufPartNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="QuantityInvoiced" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="QuantityInvoicedUnit" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="QuantityDelivered" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="QuantityDeliveredUnit" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="QuantityDespatched" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="QuantityDespatchedUnit" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="QuantityReceived" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="QuantityReceivedUnit" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LineAmount" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Description2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreditReason" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Revision" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Origin" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DelDate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FirstDelDate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LastDelDate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LineType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Head" Relationship="Self.FK_Line_Head" FromRole="Line" ToRole="Head" />
+          <NavigationProperty Name="LineAlcs" Relationship="Self.FK_LineAlc_Line" FromRole="Line" ToRole="LineAlc" />
+          <NavigationProperty Name="LinePris" Relationship="Self.FK_LinePri_Line" FromRole="Line" ToRole="LinePri" />
+          <NavigationProperty Name="LineRefs" Relationship="Self.FK_LineRef_Line" FromRole="Line" ToRole="LineRef" />
+          <NavigationProperty Name="LineTaxes" Relationship="Self.FK_LineTax_Line" FromRole="Line" ToRole="LineTax" />
+        </EntityType>
+        <EntityType Name="LineAlc">
+          <Key>
+            <PropertyRef Name="LineId" />
+            <PropertyRef Name="LineAlcCount" />
+          </Key>
+          <Property Name="LineId" Type="Int64" Nullable="false" />
+          <Property Name="LineAlcCount" Type="Int32" Nullable="false" />
+          <Property Name="AlcType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Percentage" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Amount" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TaxType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TaxCategory" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TaxRate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TaxAmount" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BaseAmount" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Line" Relationship="Self.FK_LineAlc_Line" FromRole="LineAlc" ToRole="Line" />
+        </EntityType>
+        <EntityType Name="LinePri">
+          <Key>
+            <PropertyRef Name="LineId" />
+            <PropertyRef Name="LinePriCount" />
+          </Key>
+          <Property Name="LineId" Type="Int64" Nullable="false" />
+          <Property Name="LinePriCount" Type="Int32" Nullable="false" />
+          <Property Name="PriceQualifier" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PriceType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PriceTypeQualifier" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LinePri1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LinePriBase" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LineUnit" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Line" Relationship="Self.FK_LinePri_Line" FromRole="LinePri" ToRole="Line" />
+        </EntityType>
+        <EntityType Name="LineRef">
+          <Key>
+            <PropertyRef Name="LineId" />
+            <PropertyRef Name="LineRefCount" />
+          </Key>
+          <Property Name="LineId" Type="Int64" Nullable="false" />
+          <Property Name="LineRefCount" Type="Int32" Nullable="false" />
+          <Property Name="LineRefQual" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LineRef1" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="LineRefLin" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LineRefDate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Line" Relationship="Self.FK_LineRef_Line" FromRole="LineRef" ToRole="Line" />
+        </EntityType>
+        <EntityType Name="LineTax">
+          <Key>
+            <PropertyRef Name="LineId" />
+            <PropertyRef Name="LineTaxCount" />
+          </Key>
+          <Property Name="LineId" Type="Int64" Nullable="false" />
+          <Property Name="LineTaxCount" Type="Int32" Nullable="false" />
+          <Property Name="LineTaxType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LineTaxCategory" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LineTaxRate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LineTaxAmount" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ExemptFromTax" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Line" Relationship="Self.FK_LineTax_Line" FromRole="LineTax" ToRole="Line" />
+        </EntityType>
+        <EntityType Name="Sum">
+          <Key>
+            <PropertyRef Name="PostId" />
+          </Key>
+          <Property Name="PostId" Type="Int32" Nullable="false" />
+          <Property Name="TotalQuantity" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TotalLines" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TotalAmount" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TotalAmountTaxCur" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LineAmount" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TaxableAmount" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TaxableAmountTaxCur" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TaxableAmountExclExemption" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TaxableAmountExclExemptionTaxCur" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TaxAmount" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TaxAmountTaxCur" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AlcAmount" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AdjustmentAmount" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NonTaxableAmount" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ExemptionAmount" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Head" Relationship="Self.FK_Sum_Head" FromRole="Sum" ToRole="Head" />
+        </EntityType>
+        <EntityType Name="SumTax">
+          <Key>
+            <PropertyRef Name="PostId" />
+            <PropertyRef Name="SumTaxCount" />
+          </Key>
+          <Property Name="PostId" Type="Int32" Nullable="false" />
+          <Property Name="SumTaxCount" Type="Int32" Nullable="false" />
+          <Property Name="SumTaxType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SumTaxCategory" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SumTaxRate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SumTaxableAmount" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SumTaxAmount" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TaxCurrencyTaxAmount" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Head" Relationship="Self.FK_SumTax_Head" FromRole="SumTax" ToRole="Head" />
+        </EntityType>
+        <EntityType Name="Tdt">
+          <Key>
+            <PropertyRef Name="PostId" />
+            <PropertyRef Name="TdtCount" />
+          </Key>
+          <Property Name="PostId" Type="Int32" Nullable="false" />
+          <Property Name="TdtCount" Type="Int32" Nullable="false" />
+          <Property Name="TdtMethod" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TdtDescription" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TdtCarrierName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Head" Relationship="Self.FK_Tdt_Head" FromRole="Tdt" ToRole="Head" />
+        </EntityType>
+        <EntityType Name="Tod">
+          <Key>
+            <PropertyRef Name="PostId" />
+            <PropertyRef Name="TodCount" />
+          </Key>
+          <Property Name="PostId" Type="Int32" Nullable="false" />
+          <Property Name="TodCount" Type="Int32" Nullable="false" />
+          <Property Name="TodTerms" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TodDescription" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TodTermsLoc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Head" Relationship="Self.FK_Tod_Head" FromRole="Tod" ToRole="Head" />
+        </EntityType>
+        <Association Name="FK_Alc_Head">
+          <End Role="Head" Type="Self.Head" Multiplicity="1" />
+          <End Role="Alc" Type="Self.Alc" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Head">
+              <PropertyRef Name="PostId" />
+            </Principal>
+            <Dependent Role="Alc">
+              <PropertyRef Name="PostId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Bet_Head">
+          <End Role="Head" Type="Self.Head" Multiplicity="1" />
+          <End Role="Bet" Type="Self.Bet" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Head">
+              <PropertyRef Name="PostId" />
+            </Principal>
+            <Dependent Role="Bet">
+              <PropertyRef Name="PostId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Company_Head">
+          <End Role="Head" Type="Self.Head" Multiplicity="1" />
+          <End Role="Company" Type="Self.Company" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Head">
+              <PropertyRef Name="PostId" />
+            </Principal>
+            <Dependent Role="Company">
+              <PropertyRef Name="PostId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Enclosure_Head">
+          <End Role="Head" Type="Self.Head" Multiplicity="1" />
+          <End Role="Enclosure" Type="Self.Enclosure" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Head">
+              <PropertyRef Name="PostId" />
+            </Principal>
+            <Dependent Role="Enclosure">
+              <PropertyRef Name="PostId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HeadRef_Head">
+          <End Role="Head" Type="Self.Head" Multiplicity="1" />
+          <End Role="HeadRef" Type="Self.HeadRef" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Head">
+              <PropertyRef Name="PostId" />
+            </Principal>
+            <Dependent Role="HeadRef">
+              <PropertyRef Name="PostId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Line_Head">
+          <End Role="Head" Type="Self.Head" Multiplicity="1" />
+          <End Role="Line" Type="Self.Line" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Head">
+              <PropertyRef Name="PostId" />
+            </Principal>
+            <Dependent Role="Line">
+              <PropertyRef Name="PostId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sum_Head">
+          <End Role="Head" Type="Self.Head" Multiplicity="1" />
+          <End Role="Sum" Type="Self.Sum" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Head">
+              <PropertyRef Name="PostId" />
+            </Principal>
+            <Dependent Role="Sum">
+              <PropertyRef Name="PostId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SumTax_Head">
+          <End Role="Head" Type="Self.Head" Multiplicity="1" />
+          <End Role="SumTax" Type="Self.SumTax" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Head">
+              <PropertyRef Name="PostId" />
+            </Principal>
+            <Dependent Role="SumTax">
+              <PropertyRef Name="PostId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tdt_Head">
+          <End Role="Head" Type="Self.Head" Multiplicity="1" />
+          <End Role="Tdt" Type="Self.Tdt" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Head">
+              <PropertyRef Name="PostId" />
+            </Principal>
+            <Dependent Role="Tdt">
+              <PropertyRef Name="PostId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tod_Head">
+          <End Role="Head" Type="Self.Head" Multiplicity="1" />
+          <End Role="Tod" Type="Self.Tod" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Head">
+              <PropertyRef Name="PostId" />
+            </Principal>
+            <Dependent Role="Tod">
+              <PropertyRef Name="PostId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LineAlc_Line">
+          <End Role="Line" Type="Self.Line" Multiplicity="1" />
+          <End Role="LineAlc" Type="Self.LineAlc" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Line">
+              <PropertyRef Name="LineId" />
+            </Principal>
+            <Dependent Role="LineAlc">
+              <PropertyRef Name="LineId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LinePri_Line">
+          <End Role="Line" Type="Self.Line" Multiplicity="1" />
+          <End Role="LinePri" Type="Self.LinePri" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Line">
+              <PropertyRef Name="LineId" />
+            </Principal>
+            <Dependent Role="LinePri">
+              <PropertyRef Name="LineId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LineRef_Line">
+          <End Role="Line" Type="Self.Line" Multiplicity="1" />
+          <End Role="LineRef" Type="Self.LineRef" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Line">
+              <PropertyRef Name="LineId" />
+            </Principal>
+            <Dependent Role="LineRef">
+              <PropertyRef Name="LineId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LineTax_Line">
+          <End Role="Line" Type="Self.Line" Multiplicity="1" />
+          <End Role="LineTax" Type="Self.LineTax" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Line">
+              <PropertyRef Name="LineId" />
+            </Principal>
+            <Dependent Role="LineTax">
+              <PropertyRef Name="LineId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="BillEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Alcs" EntityType="Self.Alc" />
+          <EntitySet Name="Bets" EntityType="Self.Bet" />
+          <EntitySet Name="Companies" EntityType="Self.Company" />
+          <EntitySet Name="Enclosures" EntityType="Self.Enclosure" />
+          <EntitySet Name="Heads" EntityType="Self.Head" />
+          <EntitySet Name="HeadRefs" EntityType="Self.HeadRef" />
+          <EntitySet Name="Lines" EntityType="Self.Line" />
+          <EntitySet Name="LineAlcs" EntityType="Self.LineAlc" />
+          <EntitySet Name="LinePris" EntityType="Self.LinePri" />
+          <EntitySet Name="LineRefs" EntityType="Self.LineRef" />
+          <EntitySet Name="LineTaxes" EntityType="Self.LineTax" />
+          <EntitySet Name="Sums" EntityType="Self.Sum" />
+          <EntitySet Name="SumTaxes" EntityType="Self.SumTax" />
+          <EntitySet Name="Tdts" EntityType="Self.Tdt" />
+          <EntitySet Name="Tods" EntityType="Self.Tod" />
+          <AssociationSet Name="FK_Alc_Head" Association="Self.FK_Alc_Head">
+            <End Role="Head" EntitySet="Heads" />
+            <End Role="Alc" EntitySet="Alcs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Bet_Head" Association="Self.FK_Bet_Head">
+            <End Role="Head" EntitySet="Heads" />
+            <End Role="Bet" EntitySet="Bets" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Company_Head" Association="Self.FK_Company_Head">
+            <End Role="Head" EntitySet="Heads" />
+            <End Role="Company" EntitySet="Companies" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Enclosure_Head" Association="Self.FK_Enclosure_Head">
+            <End Role="Head" EntitySet="Heads" />
+            <End Role="Enclosure" EntitySet="Enclosures" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HeadRef_Head" Association="Self.FK_HeadRef_Head">
+            <End Role="Head" EntitySet="Heads" />
+            <End Role="HeadRef" EntitySet="HeadRefs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Line_Head" Association="Self.FK_Line_Head">
+            <End Role="Head" EntitySet="Heads" />
+            <End Role="Line" EntitySet="Lines" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sum_Head" Association="Self.FK_Sum_Head">
+            <End Role="Head" EntitySet="Heads" />
+            <End Role="Sum" EntitySet="Sums" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SumTax_Head" Association="Self.FK_SumTax_Head">
+            <End Role="Head" EntitySet="Heads" />
+            <End Role="SumTax" EntitySet="SumTaxes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tdt_Head" Association="Self.FK_Tdt_Head">
+            <End Role="Head" EntitySet="Heads" />
+            <End Role="Tdt" EntitySet="Tdts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tod_Head" Association="Self.FK_Tod_Head">
+            <End Role="Head" EntitySet="Heads" />
+            <End Role="Tod" EntitySet="Tods" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LineAlc_Line" Association="Self.FK_LineAlc_Line">
+            <End Role="Line" EntitySet="Lines" />
+            <End Role="LineAlc" EntitySet="LineAlcs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LinePri_Line" Association="Self.FK_LinePri_Line">
+            <End Role="Line" EntitySet="Lines" />
+            <End Role="LinePri" EntitySet="LinePris" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LineRef_Line" Association="Self.FK_LineRef_Line">
+            <End Role="Line" EntitySet="Lines" />
+            <End Role="LineRef" EntitySet="LineRefs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LineTax_Line" Association="Self.FK_LineTax_Line">
+            <End Role="Line" EntitySet="Lines" />
+            <End Role="LineTax" EntitySet="LineTaxes" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BillModelStoreContainer" CdmEntityContainer="BillEntities">
+          <EntitySetMapping Name="Alcs">
+            <EntityTypeMapping TypeName="BillModel.Alc">
+              <MappingFragment StoreEntitySet="Alc">
+                <ScalarProperty Name="PostId" ColumnName="PostId" />
+                <ScalarProperty Name="AlcCount" ColumnName="AlcCount" />
+                <ScalarProperty Name="AlcType" ColumnName="AlcType" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Percentage" ColumnName="Percentage" />
+                <ScalarProperty Name="BaseAmount" ColumnName="BaseAmount" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="TaxType" ColumnName="TaxType" />
+                <ScalarProperty Name="TaxCategory" ColumnName="TaxCategory" />
+                <ScalarProperty Name="TaxRate" ColumnName="TaxRate" />
+                <ScalarProperty Name="TaxAmount" ColumnName="TaxAmount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Bets">
+            <EntityTypeMapping TypeName="BillModel.Bet">
+              <MappingFragment StoreEntitySet="Bet">
+                <ScalarProperty Name="PostId" ColumnName="PostId" />
+                <ScalarProperty Name="DueDate" ColumnName="DueDate" />
+                <ScalarProperty Name="DueDays" ColumnName="DueDays" />
+                <ScalarProperty Name="InvCurrency" ColumnName="InvCurrency" />
+                <ScalarProperty Name="TaxCurrency" ColumnName="TaxCurrency" />
+                <ScalarProperty Name="TaxCurrencyRate" ColumnName="TaxCurrencyRate" />
+                <ScalarProperty Name="TaxCurrencyRateDate" ColumnName="TaxCurrencyRateDate" />
+                <ScalarProperty Name="ExemptFromTax" ColumnName="ExemptFromTax" />
+                <ScalarProperty Name="PenaltySurchargePercent" ColumnName="PenaltySurchargePercent" />
+                <ScalarProperty Name="PaymentInstruction" ColumnName="PaymentInstruction" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Companies">
+            <EntityTypeMapping TypeName="BillModel.Company">
+              <MappingFragment StoreEntitySet="Company">
+                <ScalarProperty Name="PostId" ColumnName="PostId" />
+                <ScalarProperty Name="CompanyCount" ColumnName="CompanyCount" />
+                <ScalarProperty Name="CompanyQual" ColumnName="CompanyQual" />
+                <ScalarProperty Name="PartyIdentification" ColumnName="PartyIdentification" />
+                <ScalarProperty Name="VatNo" ColumnName="VatNo" />
+                <ScalarProperty Name="OrgNo" ColumnName="OrgNo" />
+                <ScalarProperty Name="CustomerNumber" ColumnName="CustomerNumber" />
+                <ScalarProperty Name="SellerUniqueIdentification" ColumnName="SellerUniqueIdentification" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ContactName" ColumnName="ContactName" />
+                <ScalarProperty Name="ContactTel" ColumnName="ContactTel" />
+                <ScalarProperty Name="ContactEmail" ColumnName="ContactEmail" />
+                <ScalarProperty Name="ContactFax" ColumnName="ContactFax" />
+                <ScalarProperty Name="StreetName" ColumnName="StreetName" />
+                <ScalarProperty Name="AdditionalStreetName" ColumnName="AdditionalStreetName" />
+                <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="Box" ColumnName="Box" />
+                <ScalarProperty Name="Department" ColumnName="Department" />
+                <ScalarProperty Name="BankCode" ColumnName="BankCode" />
+                <ScalarProperty Name="BankName" ColumnName="BankName" />
+                <ScalarProperty Name="BankAccount" ColumnName="BankAccount" />
+                <ScalarProperty Name="Iban" ColumnName="Iban" />
+                <ScalarProperty Name="PlusGiro" ColumnName="PlusGiro" />
+                <ScalarProperty Name="BankGiro" ColumnName="BankGiro" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Enclosures">
+            <EntityTypeMapping TypeName="BillModel.Enclosure">
+              <MappingFragment StoreEntitySet="Enclosure">
+                <ScalarProperty Name="PostId" ColumnName="PostId" />
+                <ScalarProperty Name="EnclosureCount" ColumnName="EnclosureCount" />
+                <ScalarProperty Name="MediaType" ColumnName="MediaType" />
+                <ScalarProperty Name="FileName" ColumnName="FileName" />
+                <ScalarProperty Name="FileCreationDate" ColumnName="FileCreationDate" />
+                <ScalarProperty Name="EnclosedDataFormat" ColumnName="EnclosedDataFormat" />
+                <ScalarProperty Name="EnclosedData" ColumnName="EnclosedData" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Heads">
+            <EntityTypeMapping TypeName="BillModel.Head">
+              <MappingFragment StoreEntitySet="Head">
+                <ScalarProperty Name="PostId" ColumnName="PostId" />
+                <ScalarProperty Name="IAID" ColumnName="IAID" />
+                <ScalarProperty Name="Flow" ColumnName="Flow" />
+                <ScalarProperty Name="InvoiceNo" ColumnName="InvoiceNo" />
+                <ScalarProperty Name="OutputType" ColumnName="OutputType" />
+                <ScalarProperty Name="UpdateCode" ColumnName="UpdateCode" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="InvoiceType" ColumnName="InvoiceType" />
+                <ScalarProperty Name="InvoiceDate" ColumnName="InvoiceDate" />
+                <ScalarProperty Name="RealDelDate" ColumnName="RealDelDate" />
+                <ScalarProperty Name="RealDelShip" ColumnName="RealDelShip" />
+                <ScalarProperty Name="HorizonStartDate" ColumnName="HorizonStartDate" />
+                <ScalarProperty Name="HorizonEndDate" ColumnName="HorizonEndDate" />
+                <ScalarProperty Name="PeriodFrom" ColumnName="PeriodFrom" />
+                <ScalarProperty Name="PeriodTo" ColumnName="PeriodTo" />
+                <ScalarProperty Name="CreditReason" ColumnName="CreditReason" />
+                <ScalarProperty Name="MaterialType" ColumnName="MaterialType" />
+                <ScalarProperty Name="GUID" ColumnName="GUID" />
+                <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+                <ScalarProperty Name="ErpVersion" ColumnName="ErpVersion" />
+                <ScalarProperty Name="isTest" ColumnName="isTest" />
+                <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
+                <ScalarProperty Name="CorporateGroup" ColumnName="CorporateGroup" />
+                <ScalarProperty Name="Erp" ColumnName="Erp" />
+                <ScalarProperty Name="Version" ColumnName="Version" />
+                <ScalarProperty Name="FromID" ColumnName="FromID" />
+                <ScalarProperty Name="Hash" ColumnName="Hash" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HeadRefs">
+            <EntityTypeMapping TypeName="BillModel.HeadRef">
+              <MappingFragment StoreEntitySet="HeadRef">
+                <ScalarProperty Name="PostId" ColumnName="PostId" />
+                <ScalarProperty Name="HeadRefCount" ColumnName="HeadRefCount" />
+                <ScalarProperty Name="HeadRefQual" ColumnName="HeadRefQual" />
+                <ScalarProperty Name="HeadRef1" ColumnName="HeadRef" />
+                <ScalarProperty Name="HeadRefDate" ColumnName="HeadRefDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Lines">
+            <EntityTypeMapping TypeName="BillModel.Line">
+              <MappingFragment StoreEntitySet="Line">
+                <ScalarProperty Name="PostId" ColumnName="PostId" />
+                <ScalarProperty Name="LineId" ColumnName="LineId" />
+                <ScalarProperty Name="LineCount" ColumnName="LineCount" />
+                <ScalarProperty Name="LineNumber" ColumnName="LineNumber" />
+                <ScalarProperty Name="GtinNo" ColumnName="GtinNo" />
+                <ScalarProperty Name="SellerPartNo" ColumnName="SellerPartNo" />
+                <ScalarProperty Name="BuyerPartNo" ColumnName="BuyerPartNo" />
+                <ScalarProperty Name="ManufPartNo" ColumnName="ManufPartNo" />
+                <ScalarProperty Name="QuantityInvoiced" ColumnName="QuantityInvoiced" />
+                <ScalarProperty Name="QuantityInvoicedUnit" ColumnName="QuantityInvoicedUnit" />
+                <ScalarProperty Name="QuantityDelivered" ColumnName="QuantityDelivered" />
+                <ScalarProperty Name="QuantityDeliveredUnit" ColumnName="QuantityDeliveredUnit" />
+                <ScalarProperty Name="QuantityDespatched" ColumnName="QuantityDespatched" />
+                <ScalarProperty Name="QuantityDespatchedUnit" ColumnName="QuantityDespatchedUnit" />
+                <ScalarProperty Name="QuantityReceived" ColumnName="QuantityReceived" />
+                <ScalarProperty Name="QuantityReceivedUnit" ColumnName="QuantityReceivedUnit" />
+                <ScalarProperty Name="LineAmount" ColumnName="LineAmount" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Description2" ColumnName="Description2" />
+                <ScalarProperty Name="CreditReason" ColumnName="CreditReason" />
+                <ScalarProperty Name="Revision" ColumnName="Revision" />
+                <ScalarProperty Name="Origin" ColumnName="Origin" />
+                <ScalarProperty Name="DelDate" ColumnName="DelDate" />
+                <ScalarProperty Name="FirstDelDate" ColumnName="FirstDelDate" />
+                <ScalarProperty Name="LastDelDate" ColumnName="LastDelDate" />
+                <ScalarProperty Name="LineType" ColumnName="LineType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LineAlcs">
+            <EntityTypeMapping TypeName="BillModel.LineAlc">
+              <MappingFragment StoreEntitySet="LineAlc">
+                <ScalarProperty Name="LineId" ColumnName="LineId" />
+                <ScalarProperty Name="LineAlcCount" ColumnName="LineAlcCount" />
+                <ScalarProperty Name="AlcType" ColumnName="AlcType" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Percentage" ColumnName="Percentage" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="TaxType" ColumnName="TaxType" />
+                <ScalarProperty Name="TaxCategory" ColumnName="TaxCategory" />
+                <ScalarProperty Name="TaxRate" ColumnName="TaxRate" />
+                <ScalarProperty Name="TaxAmount" ColumnName="TaxAmount" />
+                <ScalarProperty Name="BaseAmount" ColumnName="BaseAmount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LinePris">
+            <EntityTypeMapping TypeName="BillModel.LinePri">
+              <MappingFragment StoreEntitySet="LinePri">
+                <ScalarProperty Name="LineId" ColumnName="LineId" />
+                <ScalarProperty Name="LinePriCount" ColumnName="LinePriCount" />
+                <ScalarProperty Name="PriceQualifier" ColumnName="PriceQualifier" />
+                <ScalarProperty Name="PriceType" ColumnName="PriceType" />
+                <ScalarProperty Name="PriceTypeQualifier" ColumnName="PriceTypeQualifier" />
+                <ScalarProperty Name="LinePri1" ColumnName="LinePri" />
+                <ScalarProperty Name="LinePriBase" ColumnName="LinePriBase" />
+                <ScalarProperty Name="LineUnit" ColumnName="LineUnit" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LineRefs">
+            <EntityTypeMapping TypeName="BillModel.LineRef">
+              <MappingFragment StoreEntitySet="LineRef">
+                <ScalarProperty Name="LineId" ColumnName="LineId" />
+                <ScalarProperty Name="LineRefCount" ColumnName="LineRefCount" />
+                <ScalarProperty Name="LineRefQual" ColumnName="LineRefQual" />
+                <ScalarProperty Name="LineRef1" ColumnName="LineRef" />
+                <ScalarProperty Name="LineRefLin" ColumnName="LineRefLin" />
+                <ScalarProperty Name="LineRefDate" ColumnName="LineRefDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LineTaxes">
+            <EntityTypeMapping TypeName="BillModel.LineTax">
+              <MappingFragment StoreEntitySet="LineTax">
+                <ScalarProperty Name="LineId" ColumnName="LineId" />
+                <ScalarProperty Name="LineTaxCount" ColumnName="LineTaxCount" />
+                <ScalarProperty Name="LineTaxType" ColumnName="LineTaxType" />
+                <ScalarProperty Name="LineTaxCategory" ColumnName="LineTaxCategory" />
+                <ScalarProperty Name="LineTaxRate" ColumnName="LineTaxRate" />
+                <ScalarProperty Name="LineTaxAmount" ColumnName="LineTaxAmount" />
+                <ScalarProperty Name="ExemptFromTax" ColumnName="ExemptFromTax" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sums">
+            <EntityTypeMapping TypeName="BillModel.Sum">
+              <MappingFragment StoreEntitySet="Sum">
+                <ScalarProperty Name="PostId" ColumnName="PostId" />
+                <ScalarProperty Name="TotalQuantity" ColumnName="TotalQuantity" />
+                <ScalarProperty Name="TotalLines" ColumnName="TotalLines" />
+                <ScalarProperty Name="TotalAmount" ColumnName="TotalAmount" />
+                <ScalarProperty Name="TotalAmountTaxCur" ColumnName="TotalAmountTaxCur" />
+                <ScalarProperty Name="LineAmount" ColumnName="LineAmount" />
+                <ScalarProperty Name="TaxableAmount" ColumnName="TaxableAmount" />
+                <ScalarProperty Name="TaxableAmountTaxCur" ColumnName="TaxableAmountTaxCur" />
+                <ScalarProperty Name="TaxableAmountExclExemption" ColumnName="TaxableAmountExclExemption" />
+                <ScalarProperty Name="TaxableAmountExclExemptionTaxCur" ColumnName="TaxableAmountExclExemptionTaxCur" />
+                <ScalarProperty Name="TaxAmount" ColumnName="TaxAmount" />
+                <ScalarProperty Name="TaxAmountTaxCur" ColumnName="TaxAmountTaxCur" />
+                <ScalarProperty Name="AlcAmount" ColumnName="AlcAmount" />
+                <ScalarProperty Name="AdjustmentAmount" ColumnName="AdjustmentAmount" />
+                <ScalarProperty Name="NonTaxableAmount" ColumnName="NonTaxableAmount" />
+                <ScalarProperty Name="ExemptionAmount" ColumnName="ExemptionAmount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SumTaxes">
+            <EntityTypeMapping TypeName="BillModel.SumTax">
+              <MappingFragment StoreEntitySet="SumTax">
+                <ScalarProperty Name="PostId" ColumnName="PostId" />
+                <ScalarProperty Name="SumTaxCount" ColumnName="SumTaxCount" />
+                <ScalarProperty Name="SumTaxType" ColumnName="SumTaxType" />
+                <ScalarProperty Name="SumTaxCategory" ColumnName="SumTaxCategory" />
+                <ScalarProperty Name="SumTaxRate" ColumnName="SumTaxRate" />
+                <ScalarProperty Name="SumTaxableAmount" ColumnName="SumTaxableAmount" />
+                <ScalarProperty Name="SumTaxAmount" ColumnName="SumTaxAmount" />
+                <ScalarProperty Name="TaxCurrencyTaxAmount" ColumnName="TaxCurrencyTaxAmount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tdts">
+            <EntityTypeMapping TypeName="BillModel.Tdt">
+              <MappingFragment StoreEntitySet="Tdt">
+                <ScalarProperty Name="PostId" ColumnName="PostId" />
+                <ScalarProperty Name="TdtCount" ColumnName="TdtCount" />
+                <ScalarProperty Name="TdtMethod" ColumnName="TdtMethod" />
+                <ScalarProperty Name="TdtDescription" ColumnName="TdtDescription" />
+                <ScalarProperty Name="TdtCarrierName" ColumnName="TdtCarrierName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tods">
+            <EntityTypeMapping TypeName="BillModel.Tod">
+              <MappingFragment StoreEntitySet="Tod">
+                <ScalarProperty Name="PostId" ColumnName="PostId" />
+                <ScalarProperty Name="TodCount" ColumnName="TodCount" />
+                <ScalarProperty Name="TodTerms" ColumnName="TodTerms" />
+                <ScalarProperty Name="TodDescription" ColumnName="TodDescription" />
+                <ScalarProperty Name="TodTermsLoc" ColumnName="TodTermsLoc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

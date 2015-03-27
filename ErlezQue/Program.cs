@@ -10,6 +10,7 @@ namespace ErlezQue
     {
         static void Main(string[] args)
         {
+            var qa = new QueApplication();
         }
     }
 }

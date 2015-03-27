@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f747830f67f54d92956363ab0340f5d0" Name="Diagram1">
+        <EntityTypeShape EntityType="BullModel.Article" Width="1.5" PointX="3" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BullModel.CompanyBuyer" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BullModel.CompanySeller" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="BullModel.Invoice" Width="1.5" PointX="3.75" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BullModel.Order" Width="1.5" PointX="6" PointY="3.25" IsExpanded="true" />
+        <AssociationConnector Association="BullModel.FK_Article_CompanySeller" ManuallyRouted="false" />
+        <AssociationConnector Association="BullModel.FK_Order_CompanyBuyer" ManuallyRouted="false" />
+        <AssociationConnector Association="BullModel.FK_Order_CompanySeller" ManuallyRouted="false" />
+        <AssociationConnector Association="BullModel.FK_Order_Invoice" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
