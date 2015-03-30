@@ -27,7 +27,7 @@ namespace ErlezQue
 	        }
         }
 
-        public static void Sync()
+        public static void Sync(bool saveData)
         {
             try 
 	        {	        
@@ -35,18 +35,13 @@ namespace ErlezQue
                 stopwatch.Start();
 
                 var ediInvoice = new EdiInvoice();
-                ediInvoice.Sync();
+                var elementCount = ediInvoice.Sync(saveData);
 
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine();
-                Console.WriteLine("OK {0}ms", stopwatch.ElapsedMilliseconds);
-                Console.ForegroundColor = ConsoleColor.Gray;
-                stopwatch.Stop();
+                PrintStatus(stopwatch, elementCount);
             }
             catch (Exception ex)
             {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine(ex.Message + "/r" + ex.InnerException);
+                PrintError(ex);
             }
             finally
             {
@@ -61,31 +56,35 @@ namespace ErlezQue
                 var stopwatch = new Stopwatch();
                 stopwatch.Start();
 
-                int x = 1;
-                var i = 10;
+                int x = 1, i = 10;
 
-                while (i-- > -1)
-                {
-                    x = x / i;
-                }
- 
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine();
-                Console.WriteLine("OK {0}ms", stopwatch.ElapsedMilliseconds);
-                Console.ForegroundColor = ConsoleColor.Gray;
-                stopwatch.Stop();
+                while (i-- > -1)  { x = x / i; }
+
+                PrintStatus(stopwatch);
             }
             catch (Exception ex)
             {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine();
-                Console.WriteLine(ex.Message);
-
+                PrintError(ex);
             }
             finally
             {
 
             }
+        }
+
+        private static void PrintStatus(Stopwatch stopwatch, int _elementCount = 0)
+        {
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("\nOK {0}ms", stopwatch.ElapsedMilliseconds);
+            Console.WriteLine("Antal rader: {0}", _elementCount);
+            Console.ForegroundColor = ConsoleColor.Gray;
+            stopwatch.Stop();
+        }
+
+        private static void PrintError(Exception ex)
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("\n" + ex.Message + "\r" + ex.InnerException);
         }
     }
 }

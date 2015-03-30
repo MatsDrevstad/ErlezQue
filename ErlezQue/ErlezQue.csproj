@@ -146,11 +146,26 @@
     <Compile Include="BullDomain\Order.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Calculator.cs" />
     <Compile Include="Esap20.cs" />
     <Compile Include="Globals.cs" />
     <Compile Include="Mapper\Invoice\EdiInvoice.cs" />
-    <Compile Include="MessageController\GrossController\Head.cs" />
-    <Compile Include="MessageController\Invoice.cs" />
+    <Compile Include="MessageController\GrossController\GrossAlc.cs" />
+    <Compile Include="MessageController\GrossController\GrossBet.cs" />
+    <Compile Include="MessageController\GrossController\GrossCompany.cs" />
+    <Compile Include="MessageController\GrossController\GrossEnclosure.cs" />
+    <Compile Include="MessageController\GrossController\GrossHead.cs" />
+    <Compile Include="MessageController\GrossController\GrossHeadRef.cs" />
+    <Compile Include="MessageController\GrossController\GrossLine.cs" />
+    <Compile Include="MessageController\GrossController\GrossLineAlc.cs" />
+    <Compile Include="MessageController\GrossController\GrossLinePri.cs" />
+    <Compile Include="MessageController\GrossController\GrossLineRef.cs" />
+    <Compile Include="MessageController\GrossController\GrossLineTax.cs" />
+    <Compile Include="MessageController\GrossController\GrossSum.cs" />
+    <Compile Include="MessageController\GrossController\GrossSumTax.cs" />
+    <Compile Include="MessageController\GrossController\GrossTdt.cs" />
+    <Compile Include="MessageController\GrossController\GrossTod.cs" />
+    <Compile Include="MessageController\Esap20\Invoice.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QueApplication.cs" />

@@ -36,9 +36,10 @@ namespace ErlezQue
             string input = Console.ReadLine();
             Console.ForegroundColor = ConsoleColor.Gray;
 
-            if (input.Equals("1")) { Esap20.GlobalSettings(); }
-            if (input.Equals("2")) { Esap20.Sync(); }
-            if (input.Equals("3")) { Esap20.StartQue(); }
+            if (input.Equals("4")) { Esap20.GlobalSettings(); }
+            if (input.Equals("5")) { Esap20.Sync(false); }
+            if (input.Equals("6")) { Esap20.Sync(true); }
+            if (input.Equals("7")) { Esap20.StartQue(); }
 
             if (input.Equals("0")) { loop = false; }
 
@@ -49,12 +50,21 @@ namespace ErlezQue
         {
             Console.ForegroundColor = ConsoleColor.Gray; 
             Console.WriteLine();
-            Console.Write("Start\t");
+            Console.Write("ESAP6\t");
             Console.WriteLine("[1] Inställningar");
             Console.Write("\t");
             Console.WriteLine("[2] Synkronisera nu");
             Console.Write("\t");
             Console.WriteLine("[3] Starta kö");
+            Console.WriteLine();
+            Console.Write("ESAP20\t");
+            Console.WriteLine("[4] Inställningar");
+            Console.Write("\t");
+            Console.WriteLine("[5] Kör test på data");
+            Console.Write("\t");
+            Console.WriteLine("[6] Synkronisera nu");
+            Console.Write("\t");
+            Console.WriteLine("[7] Starta kö");
             Console.WriteLine();
             Console.WriteLine("\t[0] EXIT");
             Console.WriteLine();
