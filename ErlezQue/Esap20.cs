@@ -6,10 +6,11 @@ using System.Text;
 using System.Threading.Tasks;
 using ErlezQue.BillDomain;
 using ErlezQue.BullDomain;
+using ErlezQue.Mapper.Invoice;
 
 namespace ErlezQue
 {
-    class DbGenerate
+    class Esap20
     {
         public static void GlobalSettings()
         {
@@ -33,21 +34,8 @@ namespace ErlezQue
                 var stopwatch = new Stopwatch();
                 stopwatch.Start();
 
-                var bill = new BillEntities();
-                var bull = new BullEntities();
-
-                var ordersToSync = bull.Orders
-                    .Where(o => o.InvoiceId != null)
-                    .Where(o => o.Invoice.Status == "Created");
-
-                foreach (var item in ordersToSync)
-	            {
-                    bill.Heads.Add(new Head() 
-                    {
-                        InvoiceNo = item.Invoice.InvoiceNo.ToString(),
-                    });
-                    bill.SaveChanges();
-	            }
+                var ediInvoice = new EdiInvoice();
+                ediInvoice.Sync();
 
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine();
@@ -62,7 +50,7 @@ namespace ErlezQue
             }
             finally
             {
-                //proxy.Close();
+
             }
         }
 
@@ -96,7 +84,7 @@ namespace ErlezQue
             }
             finally
             {
-                //proxy.Close();
+
             }
         }
     }

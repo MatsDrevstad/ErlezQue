@@ -26,7 +26,7 @@ namespace ErlezQue
             Console.ForegroundColor = ConsoleColor.DarkGray;
             Console.WriteLine();
             Console.WriteLine("Välkommen tillbaka");
-            Thread.Sleep(500);
+            Thread.Sleep(222);
         }
 
         public bool HandleMenuOptions(bool loop)
@@ -36,9 +36,9 @@ namespace ErlezQue
             string input = Console.ReadLine();
             Console.ForegroundColor = ConsoleColor.Gray;
 
-            if (input.Equals("1")) { DbGenerate.GlobalSettings(); }
-            if (input.Equals("2")) { DbGenerate.Sync(); }
-            if (input.Equals("3")) { DbGenerate.StartQue(); }
+            if (input.Equals("1")) { Esap20.GlobalSettings(); }
+            if (input.Equals("2")) { Esap20.Sync(); }
+            if (input.Equals("3")) { Esap20.StartQue(); }
 
             if (input.Equals("0")) { loop = false; }
 
