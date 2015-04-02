@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading;
+using ErlezQue.Infrastructure;
 
 namespace ErlezQue
 {
@@ -40,6 +41,7 @@ namespace ErlezQue
             if (input.Equals("5")) { Esap20.Sync(false); }
             if (input.Equals("6")) { Esap20.Sync(true); }
             if (input.Equals("7")) { Esap20.StartQue(); }
+            if (input.Equals("8")) { DbController.CreateTables(); }
 
             if (input.Equals("0")) { loop = false; }
 
@@ -66,6 +68,8 @@ namespace ErlezQue
             Console.Write("\t");
             Console.WriteLine("[7] Starta kö");
             Console.WriteLine();
+            Console.Write("DB\t");
+            Console.WriteLine("[8] Truncate Bill");
             Console.WriteLine("\t[0] EXIT");
             Console.WriteLine();
         }

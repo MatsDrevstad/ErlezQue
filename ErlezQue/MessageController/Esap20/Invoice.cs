@@ -33,7 +33,6 @@ namespace ErlezQue.MessageController.Esap20
                     }
                 }
                 _elementCount++;
-
                 if (saveData) { MessageController.GrossController.GrossHead.Insert(head); }
             }
 

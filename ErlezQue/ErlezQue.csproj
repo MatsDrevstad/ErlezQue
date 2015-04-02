@@ -46,6 +46,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
@@ -149,6 +150,9 @@
     <Compile Include="Calculator.cs" />
     <Compile Include="Esap20.cs" />
     <Compile Include="Globals.cs" />
+    <Compile Include="Infrastructure\DbDesign.cs" />
+    <Compile Include="Infrastructure\DbController.cs" />
+    <Compile Include="Infrastructure\DbContext.cs" />
     <Compile Include="Mapper\Invoice\EdiInvoice.cs" />
     <Compile Include="MessageController\GrossController\GrossAlc.cs" />
     <Compile Include="MessageController\GrossController\GrossBet.cs" />
@@ -168,10 +172,17 @@
     <Compile Include="MessageController\Esap20\Invoice.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
     <Compile Include="QueApplication.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
     <EntityDeploy Include="BillDomain\Model1.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Model1.Designer.cs</LastGenOutput>
@@ -207,6 +218,10 @@
       <LastGenOutput>Model1.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
