@@ -5,7 +5,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ErlezQue.Models;
 
 namespace ErlezQue.Mapper.Invoice
 {
@@ -38,7 +37,7 @@ namespace ErlezQue.Mapper.Invoice
             list.Add(new Company()
             {
                 CompanyQual = "SE",
-                OrgNo = _bull.CompanySellers.Find(inv.Orders.Where(i => i.InvoiceId == inv.Id).FirstOrDefault().CompanySellerId).OrgNo,
+                VatNo = _bull.CompanySellers.Find(inv.Orders.Where(i => i.InvoiceId == inv.Id).FirstOrDefault().CompanySellerId).OrgNo,
                 Name = _bull.CompanySellers.Find(inv.Orders.Where(i => i.InvoiceId == inv.Id).FirstOrDefault().CompanySellerId).Name,
                 City = _bull.CompanySellers.Find(inv.Orders.Where(i => i.InvoiceId == inv.Id).FirstOrDefault().CompanySellerId).City,
             });
@@ -46,13 +45,22 @@ namespace ErlezQue.Mapper.Invoice
             list.Add(new Company()
             {
                 CompanyQual = "BY",
-                OrgNo = _bull.CompanyBuyers.Find(inv.Orders.Where(i => i.InvoiceId == inv.Id).FirstOrDefault().CompanyBuyerId).OrgNo,
+                VatNo = _bull.CompanyBuyers.Find(inv.Orders.Where(i => i.InvoiceId == inv.Id).FirstOrDefault().CompanyBuyerId).OrgNo,
                 Name = _bull.CompanyBuyers.Find(inv.Orders.Where(i => i.InvoiceId == inv.Id).FirstOrDefault().CompanyBuyerId).Name,
                 City = _bull.CompanyBuyers.Find(inv.Orders.Where(i => i.InvoiceId == inv.Id).FirstOrDefault().CompanyBuyerId).City,
             });
 
             return list.AsEnumerable();
+        }
 
+        //Bet 1..1
+        private Bet GetBet(ErlezQue.BullDomain.Invoice inv)
+        {
+            var bet = new Bet()
+            { 
+                DueDate = inv.DueDate.ToString(),
+            };
+            return bet;
         }
 
         internal int Sync(bool saveData)
@@ -65,8 +73,9 @@ namespace ErlezQue.Mapper.Invoice
 
                 var head = GetHead(invoice);
                 var companies = GetCompany(invoice);
+                var bet = GetBet(invoice);
 
-                var messageController = new MessageController.Esap20.Invoice(head, companies);
+                var messageController = new Messaging.Esap20.Invoice(head, companies, bet);
                 _elementCount = _elementCount + messageController.Save(saveData);
 
                 if (saveData)

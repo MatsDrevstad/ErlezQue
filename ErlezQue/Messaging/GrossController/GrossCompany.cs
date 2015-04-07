@@ -1,12 +1,12 @@
-﻿using ErlezQue.BillDomain;
+using ErlezQue.BillDomain;
 using ErlezQue.BullDomain;
 using System;
 
-namespace ErlezQue.MessageController.GrossController
+namespace ErlezQue.Messaging.GrossController
 {
-    public static class GrossCompany
+    public class GrossCompany : MessageController
     {
-        public static void Insert(ErlezQue.BillDomain.Company company)
+        public void Insert(ErlezQue.BillDomain.Company company)
         {
             var bill = new BillEntities();
 

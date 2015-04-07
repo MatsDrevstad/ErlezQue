@@ -2,11 +2,11 @@ using ErlezQue.BillDomain;
 using ErlezQue.BullDomain;
 using System;
 
-namespace ErlezQue.MessageController.GrossController
+namespace ErlezQue.Messaging.GrossController
 {
-    public static class GrossHeadRef
+    public class GrossHeadRef : MessageController
     {
-        public static void Insert(ErlezQue.BillDomain.HeadRef headRef)
+        public void Insert(ErlezQue.BillDomain.HeadRef headRef)
         {
             var bill = new BillEntities();
 

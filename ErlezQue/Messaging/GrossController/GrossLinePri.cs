@@ -2,11 +2,11 @@ using ErlezQue.BillDomain;
 using ErlezQue.BullDomain;
 using System;
 
-namespace ErlezQue.MessageController.GrossController
+namespace ErlezQue.Messaging.GrossController
 {
-    public static class GrossLinePri
+    public class GrossLinePri : MessageController
     {
-        public static void Insert(ErlezQue.BillDomain.LinePri linePri)
+        public void Insert(ErlezQue.BillDomain.LinePri linePri)
         {
             var bill = new BillEntities();
 

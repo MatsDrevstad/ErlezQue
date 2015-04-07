@@ -2,11 +2,11 @@ using ErlezQue.BillDomain;
 using ErlezQue.BullDomain;
 using System;
 
-namespace ErlezQue.MessageController.GrossController
+namespace ErlezQue.Messaging.GrossController
 {
-    public static class GrossTod
+    public class GrossTod : MessageController
     {
-        public static void Insert(ErlezQue.BillDomain.Tod tod)
+        public void Insert(ErlezQue.BillDomain.Tod tod)
         {
             var bill = new BillEntities();
 

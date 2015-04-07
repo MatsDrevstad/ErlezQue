@@ -2,11 +2,11 @@ using ErlezQue.BillDomain;
 using ErlezQue.BullDomain;
 using System;
 
-namespace ErlezQue.MessageController.GrossController
+namespace ErlezQue.Messaging.GrossController
 {
-    public static class GrossSumTax
+    public class GrossSumTax : MessageController
     {
-        public static void Insert(ErlezQue.BillDomain.SumTax sumTax)
+        public void Insert(ErlezQue.BillDomain.SumTax sumTax)
         {
             var bill = new BillEntities();
 

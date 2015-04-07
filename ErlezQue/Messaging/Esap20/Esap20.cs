@@ -9,9 +9,9 @@ using ErlezQue.BullDomain;
 using ErlezQue.Mapper.Invoice;
 using System.Threading;
 
-namespace ErlezQue
+namespace ErlezQue.Messaging.Esap20
 {
-    class Esap20
+    class Esap20 : MessageController
     {
         public static void GlobalSettings()
         {
@@ -68,21 +68,6 @@ namespace ErlezQue
             {
 
             }
-        }
-
-        private static void PrintStatus(Stopwatch stopwatch, int _elementCount = 0)
-        {
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("\nOK {0}ms", stopwatch.ElapsedMilliseconds);
-            Console.WriteLine("Antal rader: {0}", _elementCount);
-            Console.ForegroundColor = ConsoleColor.Gray;
-            stopwatch.Stop();
-        }
-
-        private static void PrintError(Exception ex)
-        {
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("\n" + ex.Message + "\r" + ex.InnerException);
         }
     }
 }
