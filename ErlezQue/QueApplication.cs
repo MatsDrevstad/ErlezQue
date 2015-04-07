@@ -42,6 +42,7 @@ namespace ErlezQue
             if (input.Equals("6")) { Esap20.Sync(true); }
             if (input.Equals("7")) { Esap20.StartQue(); }
             if (input.Equals("8")) { DbController.CreateTables(); }
+            if (input.Equals("9")) { DbController.SetCreated(); }
 
             if (input.Equals("0")) { loop = false; }
 
@@ -70,6 +71,7 @@ namespace ErlezQue
             Console.WriteLine();
             Console.Write("DB\t");
             Console.WriteLine("[8] Truncate Bill");
+            Console.WriteLine("\t[9] Set Created Bull");
             Console.WriteLine("\t[0] EXIT");
             Console.WriteLine();
         }

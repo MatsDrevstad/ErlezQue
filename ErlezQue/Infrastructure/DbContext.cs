@@ -15,9 +15,9 @@ namespace ErlezQue.Infrastructure
     {
         private SqlConnection _connection;
 
-        public DbContext()
+        public DbContext(string str = "Bill")
         {
-            _connection = new SqlConnection(ConnectionString());
+            _connection = new SqlConnection(ConnectionString(str));
         }
 
         public void Open()
@@ -35,12 +35,15 @@ namespace ErlezQue.Infrastructure
             return _connection;
         }
 
-        private string ConnectionString()
+        private string ConnectionString(string str)
         {
             string connStr = ConfigurationManager.ConnectionStrings["ErlezQue.Properties.Settings.BillAdo"].ToString();
+            if (str == "Bull")
+                connStr = ConfigurationManager.ConnectionStrings["ErlezQue.Properties.Settings.BullAdo"].ToString();
+
             SqlConnectionStringBuilder sb = new SqlConnectionStringBuilder(connStr);
 
-            sb.ApplicationName = "Bill";
+            sb.ApplicationName = str;
             sb.ConnectTimeout = 30;
 
             return sb.ToString();

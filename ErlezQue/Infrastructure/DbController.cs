@@ -46,6 +46,31 @@ namespace ErlezQue.Infrastructure
             }
         }
 
+        public static void SetCreated()
+        {
+            var context = new DbContext("Bull");
+
+            try
+            {
+                var stopwatch = new Stopwatch();
+                stopwatch.Start();
+                var command = new SqlCommand("UPDATE Invoice SET Status = 'Created'", context.GetConnection());
+
+                context.Open();
+                command.ExecuteNonQuery();
+                PrintStatus(stopwatch);
+
+            }
+            catch (Exception ex)
+            {
+                PrintError(ex);
+            }
+            finally
+            {
+                context.Close();
+            }
+        }
+
         private static void PrintStatus(Stopwatch stopwatch, int _elementCount = 0)
         {
             Console.ForegroundColor = ConsoleColor.Green;
