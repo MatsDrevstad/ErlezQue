@@ -10,8 +10,9 @@ namespace ErlezQue.MessageController.GrossController
         {
             var bill = new BillEntities();
 
-            bill.Companies.Add(new ErlezQue.BillDomain.Company()
+            var Company = new ErlezQue.BillDomain.Company()
             {
+                PostId = company.PostId,
                 CompanyCount = company.CompanyCount,
                 CompanyQual = company.CompanyQual,
                 PartyIdentification = company.PartyIdentification,
@@ -37,8 +38,16 @@ namespace ErlezQue.MessageController.GrossController
                 Iban = company.Iban,
                 PlusGiro = company.PlusGiro,
                 BankGiro = company.BankGiro,
-            });
-            bill.SaveChanges();
+            };
+            try
+            {
+                bill.Companies.Add(Company);
+                bill.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }

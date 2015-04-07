@@ -10,40 +10,56 @@ namespace ErlezQue.MessageController.Esap20
 {
     public class Invoice
     {
-        private IEnumerable<Head> _heads;
+        private Head _head;
         private IEnumerable<Company> _companies;
         private int _elementCount;
+        private int postId;
 
-        public Invoice(IEnumerable<Head> heads, IEnumerable<Company> companies)
+        public Invoice(Head head, IEnumerable<Company> companies)
         {
-            _heads = heads;
+            _head = head;
             _companies = companies;
             _elementCount = 0;
         }
 
         public int Save(bool saveData) 
         {
-            foreach (var head in _heads)
+            if (_head.InvoiceType == "381")
             {
-                if (head.InvoiceType == "381")
+                if (string.IsNullOrEmpty(_head.CreditReason))
+                    throw new Exception("Fel: T0061. " + this.GetType());
+            }
+            _elementCount++;
+            if (saveData) 
+            {
+                try
                 {
-                    if (string.IsNullOrEmpty(head.CreditReason))
+                    postId = MessageController.GrossController.GrossHead.Insert(_head);
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+            }
+
+            int countCompany = 1;
+            foreach (var item in _companies)
+            {
+                item.PostId = postId;
+                item.CompanyCount = countCompany++;
+                if (saveData) 
+                {
+                    try
                     {
-                        throw new Exception("Fel: T0061. " + this.GetType());
+                        MessageController.GrossController.GrossCompany.Insert(item); 
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.InnerException);
                     }
                 }
                 _elementCount++;
-                if (saveData) { MessageController.GrossController.GrossHead.Insert(head); }
             }
-
-            foreach (var item in _companies)
-            {
-                if (false)
-                    throw new Exception("Fel: T0000. " + this.GetType());
-                if (saveData) { MessageController.GrossController.GrossCompany.Insert(item); }
-                _elementCount++;
-	        }
-
             return _elementCount;
         }
     }

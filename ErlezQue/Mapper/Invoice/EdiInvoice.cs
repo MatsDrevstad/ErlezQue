@@ -5,68 +5,73 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ErlezQue.Models;
 
 namespace ErlezQue.Mapper.Invoice
 {
     public class EdiInvoice
     {
         private BullEntities _bull;
+        private int _elementCount = 0;
 
         public EdiInvoice()
 	    {
             _bull = new BullEntities();
 	    }
 
-        public IEnumerable<Head> GetHead(List<Order> ordersToSync)
+        //Head 1..1
+        public Head GetHead(ErlezQue.BullDomain.Invoice inv)
         {
-            var list = new List<Head>();
-            foreach (var item in ordersToSync)
+            var head = new Head()
             {
-                list.Add(new Head()
-                { 
-                    InvoiceNo = item.Invoice.InvoiceNo.ToString(),
-                    InvoiceType = "380",
-                    InvoiceDate = item.Invoice.InvoiceDate.ToString(),
-
-                });
-            }
-            return list.AsEnumerable();
+                InvoiceNo = inv.InvoiceNo.ToString(),
+                InvoiceType = "380",
+                InvoiceDate = inv.InvoiceDate.ToString(),
+            };
+            return head;
         }
 
-        private IEnumerable<Company> GetCompany(List<Order> ordersToSync)
+        //Company 2..*
+        private IEnumerable<Company> GetCompany(ErlezQue.BullDomain.Invoice inv)
         {
             var list = new List<Company>();
-            foreach (var item in ordersToSync)
+            list.Add(new Company()
             {
-                list.Add(new Company()
-                {
-                    OrgNo = _bull.CompanySellers.Find(item.CompanySellerId).OrgNo,
-                    Name = _bull.CompanySellers.Find(item.CompanySellerId).Name,
-                    City = _bull.CompanySellers.Find(item.CompanySellerId).City,
-                });
-            }
+                CompanyQual = "SE",
+                OrgNo = _bull.CompanySellers.Find(inv.Orders.Where(i => i.InvoiceId == inv.Id).FirstOrDefault().CompanySellerId).OrgNo,
+                Name = _bull.CompanySellers.Find(inv.Orders.Where(i => i.InvoiceId == inv.Id).FirstOrDefault().CompanySellerId).Name,
+                City = _bull.CompanySellers.Find(inv.Orders.Where(i => i.InvoiceId == inv.Id).FirstOrDefault().CompanySellerId).City,
+            });
+
+            list.Add(new Company()
+            {
+                CompanyQual = "BY",
+                OrgNo = _bull.CompanyBuyers.Find(inv.Orders.Where(i => i.InvoiceId == inv.Id).FirstOrDefault().CompanyBuyerId).OrgNo,
+                Name = _bull.CompanyBuyers.Find(inv.Orders.Where(i => i.InvoiceId == inv.Id).FirstOrDefault().CompanyBuyerId).Name,
+                City = _bull.CompanyBuyers.Find(inv.Orders.Where(i => i.InvoiceId == inv.Id).FirstOrDefault().CompanyBuyerId).City,
+            });
+
             return list.AsEnumerable();
 
         }
 
         internal int Sync(bool saveData)
         {
-            var ordersToSync = _bull.Orders
-                .Where(o => o.InvoiceId != null)
-                .Where(o => o.Invoice.Status == "Created").ToList();
-
-            var heads = GetHead(ordersToSync);
-            var company = GetCompany(ordersToSync);
-
-            var messageController = new MessageController.Esap20.Invoice(heads, company);
-            var _elementCount = messageController.Save(saveData);
-
-            if (saveData)
+            while (_bull.Invoices.Count(i => i.Status == "Created") > 0)
             {
-                foreach (var item in ordersToSync)
+                var invoice = _bull.Invoices
+                    .Where(i => i.Status == "Created")
+                    .FirstOrDefault();
+
+                var head = GetHead(invoice);
+                var companies = GetCompany(invoice);
+
+                var messageController = new MessageController.Esap20.Invoice(head, companies);
+                _elementCount = _elementCount + messageController.Save(saveData);
+
+                if (saveData)
                 {
-                    item.Gtin = null;
-                    item.Invoice.Status = "Synced";
+                    invoice.Status = "Synced";
                     _bull.SaveChanges();
                 }
             }
