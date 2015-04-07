@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using ErlezQue.BillDomain;
 using ErlezQue.BullDomain;
 using ErlezQue.Mapper.Invoice;
+using System.Threading;
 
 namespace ErlezQue
 {
@@ -53,14 +54,11 @@ namespace ErlezQue
         {
             try
             {
-                var stopwatch = new Stopwatch();
-                stopwatch.Start();
-
-                int x = 1, i = 10;
-
-                while (i-- > -1)  { x = x / i; }
-
-                PrintStatus(stopwatch);
+                while (true)
+                {
+                    Sync(true);
+                    Thread.Sleep(5000);
+                }
             }
             catch (Exception ex)
             {

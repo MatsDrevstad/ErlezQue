@@ -52,8 +52,7 @@ namespace ErlezQue
         private void PrintMenuOptions()
         {
             Console.ForegroundColor = ConsoleColor.Gray; 
-            Console.WriteLine();
-            Console.Write("ESAP6\t");
+            Console.Write("\nESAP6\t");
             Console.WriteLine("[1] Inställningar");
             Console.Write("\t");
             Console.WriteLine("[2] Synkronisera nu");
@@ -72,7 +71,7 @@ namespace ErlezQue
             Console.Write("DB\t");
             Console.WriteLine("[8] Truncate Bill");
             Console.WriteLine("\t[9] Set Created Bull");
-            Console.WriteLine("\t[0] EXIT");
+            Console.WriteLine("\n\t[0] EXIT");
             Console.WriteLine();
         }
     }

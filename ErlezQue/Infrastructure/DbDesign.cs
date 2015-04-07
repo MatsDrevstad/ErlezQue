@@ -226,7 +226,7 @@ CREATE TABLE [dbo].[LineAlc](
 	[Percentage] [varchar](50) NULL,
 	[Amount] [varchar](50) NULL,
 	[TaxType] [varchar](50) NULL,
-	[TaxCate;ry] [varchar](50) NULL,
+	[TaxCategory] [varchar](50) NULL,
 	[TaxRate] [varchar](50) NULL,
 	[TaxAmount] [varchar](50) NULL,
 	[BaseAmount] [varchar](50) NULL,
