@@ -1,4 +1,4 @@
-﻿using ErlezQue.BillDomain;
+using ErlezQue.BillDomain;
 using ErlezQue.BullDomain;
 using System;
 
@@ -10,7 +10,7 @@ namespace ErlezQue.MessageController.GrossController
         {
             var bill = new BillEntities();
 
-            bill.Sums.Add(new ErlezQue.BillDomain.Sum()
+	        var Sums = new ErlezQue.BillDomain.Sum()
             {
                 PostId = sum.PostId,
                 TotalQuantity = sum.TotalQuantity,
@@ -28,8 +28,16 @@ namespace ErlezQue.MessageController.GrossController
                 AdjustmentAmount = sum.AdjustmentAmount,
                 NonTaxableAmount = sum.NonTaxableAmount,
                 ExemptionAmount = sum.ExemptionAmount,
-            });
-            bill.SaveChanges();
-        }
+            };
+            try
+            {
+                bill.Sums.Add(Sums);
+                bill.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+	    }
     }
 }

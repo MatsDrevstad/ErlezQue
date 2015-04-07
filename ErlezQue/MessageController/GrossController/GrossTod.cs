@@ -1,4 +1,4 @@
-﻿using ErlezQue.BillDomain;
+using ErlezQue.BillDomain;
 using ErlezQue.BullDomain;
 using System;
 
@@ -10,15 +10,23 @@ namespace ErlezQue.MessageController.GrossController
         {
             var bill = new BillEntities();
 
-            bill.Tods.Add(new ErlezQue.BillDomain.Tod()
+	        var Tods = new ErlezQue.BillDomain.Tod()
             {
                 PostId = tod.PostId,
                 TodCount = tod.TodCount,
                 TodTerms = tod.TodTerms,
                 TodDescription = tod.TodDescription,
                 TodTermsLoc = tod.TodTermsLoc,
-            });
-            bill.SaveChanges();
+            };
+	        try
+	        {
+	            bill.Tods.Add(Tods);
+	            bill.SaveChanges();
+	        }
+	        catch (Exception ex)
+	        {
+	            throw ex;
+	        }
         }
     }
 }

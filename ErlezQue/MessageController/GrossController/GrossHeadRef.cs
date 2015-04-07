@@ -1,4 +1,4 @@
-﻿using ErlezQue.BillDomain;
+using ErlezQue.BillDomain;
 using ErlezQue.BullDomain;
 using System;
 
@@ -10,15 +10,23 @@ namespace ErlezQue.MessageController.GrossController
         {
             var bill = new BillEntities();
 
-            bill.HeadRefs.Add(new ErlezQue.BillDomain.HeadRef()
+	    var HeadRefs = new ErlezQue.BillDomain.HeadRef()
             {
                 PostId = headRef.PostId,
                 HeadRefCount = headRef.HeadRefCount,
                 HeadRefQual = headRef.HeadRefQual,
                 HeadRef1 = headRef.HeadRef1,
                 HeadRefDate = headRef.HeadRefDate,
-            });
-            bill.SaveChanges();
-        }
+            };
+            try
+            {
+                bill.HeadRefs.Add(HeadRefs);
+                bill.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+	    }
     }
 }

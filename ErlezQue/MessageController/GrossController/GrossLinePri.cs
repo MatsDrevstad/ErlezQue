@@ -1,4 +1,4 @@
-﻿using ErlezQue.BillDomain;
+using ErlezQue.BillDomain;
 using ErlezQue.BullDomain;
 using System;
 
@@ -10,7 +10,7 @@ namespace ErlezQue.MessageController.GrossController
         {
             var bill = new BillEntities();
 
-            bill.LinePris.Add(new ErlezQue.BillDomain.LinePri()
+    	    var LinePris = new ErlezQue.BillDomain.LinePri()
             {
                 LineId = linePri.LineId,
                 LinePriCount = linePri.LinePriCount,
@@ -20,8 +20,16 @@ namespace ErlezQue.MessageController.GrossController
                 LinePri1 = linePri.LinePri1,
                 LinePriBase = linePri.LinePriBase,
                 LineUnit = linePri.LineUnit,
-            });
-            bill.SaveChanges();
-        }
+            };
+            try
+            {
+                bill.LinePris.Add(LinePris);
+                bill.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+	    }
     }
 }
