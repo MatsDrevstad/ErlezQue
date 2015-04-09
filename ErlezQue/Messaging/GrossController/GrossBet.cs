@@ -14,7 +14,7 @@ namespace ErlezQue.Messaging.GrossController
 	        var Bets = new ErlezQue.BillDomain.Bet()
             {
                 PostId = bet.PostId,
-                DueDate = MatchGrossFormat(bet.DueDate, "YYYY-mm-dd", this.GetType()),
+                DueDate = MatchGrossFormat(bet.DueDate, @"^\d{4}-\d{2}-\d{2}$", this.GetType()),
                 DueDays = bet.DueDays,
                 InvCurrency = bet.InvCurrency,
                 TaxCurrency = bet.TaxCurrency,

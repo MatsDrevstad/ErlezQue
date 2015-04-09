@@ -6,11 +6,11 @@ namespace ErlezQue.Messaging.GrossController
 {
     public class GrossLine : MessageController
     {
-        public void Insert(bool saveData, ErlezQue.BillDomain.Line line)
+        public long Insert(bool saveData, ErlezQue.BillDomain.Line line)
         {
             var bill = new BillEntities();
 
-	        var Lines = new ErlezQue.BillDomain.Line()
+	        var Line = new ErlezQue.BillDomain.Line()
             {
                 PostId = line.PostId,
                 LineId = line.LineId,
@@ -41,7 +41,7 @@ namespace ErlezQue.Messaging.GrossController
             };
             try
             {
-                bill.Lines.Add(Lines);
+                bill.Lines.Add(Line);
                 if(saveData)
                     bill.SaveChanges();
             }
@@ -49,6 +49,8 @@ namespace ErlezQue.Messaging.GrossController
             {
                 throw ex;
             }
+
+            return Line.LineId;
 	    }
     }
 }
