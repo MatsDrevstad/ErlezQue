@@ -6,7 +6,7 @@ namespace ErlezQue.Messaging.GrossController
 {
     public class GrossTod : MessageController
     {
-        public void Insert(ErlezQue.BillDomain.Tod tod)
+        public void Insert(bool saveData, ErlezQue.BillDomain.Tod tod)
         {
             var bill = new BillEntities();
 
@@ -21,7 +21,8 @@ namespace ErlezQue.Messaging.GrossController
 	        try
 	        {
 	            bill.Tods.Add(Tods);
-	            bill.SaveChanges();
+	            if(saveData)
+	               	bill.SaveChanges();
 	        }
 	        catch (Exception ex)
 	        {

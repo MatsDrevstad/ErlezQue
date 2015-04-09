@@ -37,7 +37,7 @@ namespace ErlezQue.Messaging
             var regex = new Regex(pattern, RegexOptions.IgnoreCase);
             if (!regex.IsMatch(str))
             {
-                PrintError("Varning, Formatfel: " + obj.ToString() + " '" + pattern + "'");
+                PrintError("Varning (Formatfel): " + obj.ToString() + " '" + pattern + "'");
             }
             return str;
         }

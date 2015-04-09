@@ -6,7 +6,7 @@ namespace ErlezQue.Messaging.GrossController
 {
     public class GrossSum : MessageController
     {
-        public void Insert(ErlezQue.BillDomain.Sum sum)
+        public void Insert(bool saveData, ErlezQue.BillDomain.Sum sum)
         {
             var bill = new BillEntities();
 
@@ -32,7 +32,8 @@ namespace ErlezQue.Messaging.GrossController
             try
             {
                 bill.Sums.Add(Sums);
-                bill.SaveChanges();
+                if(saveData)
+                    bill.SaveChanges();
             }
             catch (Exception ex)
             {

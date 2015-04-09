@@ -6,7 +6,7 @@ namespace ErlezQue.Messaging.GrossController
 {
     public class GrossHead : MessageController
     {
-        public int Insert(ErlezQue.BillDomain.Head head)
+        public int Insert(bool saveData, ErlezQue.BillDomain.Head head)
         {
             var bill = new BillEntities();
 
@@ -42,7 +42,8 @@ namespace ErlezQue.Messaging.GrossController
             try
             {
                 bill.Heads.Add(Head);
-                bill.SaveChanges();
+                if(saveData)
+                    bill.SaveChanges();
             }
             catch (Exception ex)
             {

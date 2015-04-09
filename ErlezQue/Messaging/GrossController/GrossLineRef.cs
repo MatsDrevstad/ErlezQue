@@ -6,7 +6,7 @@ namespace ErlezQue.Messaging.GrossController
 {
     public class GrossLineRef : MessageController
     {
-        public void Insert(ErlezQue.BillDomain.LineRef lineRef)
+        public void Insert(bool saveData, ErlezQue.BillDomain.LineRef lineRef)
         {
             var bill = new BillEntities();
 
@@ -22,7 +22,8 @@ namespace ErlezQue.Messaging.GrossController
             try
             {
                 bill.LineRefs.Add(LineRefs);
-                bill.SaveChanges();
+                if(saveData)
+                    bill.SaveChanges();
             }
             catch (Exception ex)
             {

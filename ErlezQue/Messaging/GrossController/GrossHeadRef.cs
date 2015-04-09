@@ -6,7 +6,7 @@ namespace ErlezQue.Messaging.GrossController
 {
     public class GrossHeadRef : MessageController
     {
-        public void Insert(ErlezQue.BillDomain.HeadRef headRef)
+        public void Insert(bool saveData, ErlezQue.BillDomain.HeadRef headRef)
         {
             var bill = new BillEntities();
 
@@ -21,7 +21,8 @@ namespace ErlezQue.Messaging.GrossController
             try
             {
                 bill.HeadRefs.Add(HeadRefs);
-                bill.SaveChanges();
+                if(saveData)
+                    bill.SaveChanges();
             }
             catch (Exception ex)
             {

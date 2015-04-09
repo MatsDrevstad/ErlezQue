@@ -6,7 +6,7 @@ namespace ErlezQue.Messaging.GrossController
 {
     public class GrossAlc : MessageController
     {
-        public void Insert(ErlezQue.BillDomain.Alc alc)
+        public void Insert(bool saveData, ErlezQue.BillDomain.Alc alc)
         {
             var bill = new BillEntities();
 
@@ -27,7 +27,8 @@ namespace ErlezQue.Messaging.GrossController
 	        try 
 	        {
 	            bill.Alcs.Add(Alcs);
-	            bill.SaveChanges();
+	            if(saveData)
+	               	bill.SaveChanges();
 	        }
 	        catch (Exception ex)
 	        {

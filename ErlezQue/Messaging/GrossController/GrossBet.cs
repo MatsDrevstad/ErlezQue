@@ -7,7 +7,7 @@ namespace ErlezQue.Messaging.GrossController
 {
     public class GrossBet : MessageController
     {
-        public void Insert(ErlezQue.BillDomain.Bet bet)
+        public void Insert(bool saveData, ErlezQue.BillDomain.Bet bet)
         {
             var bill = new BillEntities();
 
@@ -27,7 +27,8 @@ namespace ErlezQue.Messaging.GrossController
 	        try
 	        {
 	            bill.Bets.Add(Bets);
-	            bill.SaveChanges();
+	            if(saveData)
+	               	bill.SaveChanges();
 	        }
 	        catch (Exception ex)
 	        {

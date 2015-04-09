@@ -6,7 +6,7 @@ namespace ErlezQue.Messaging.GrossController
 {
     public class GrossLinePri : MessageController
     {
-        public void Insert(ErlezQue.BillDomain.LinePri linePri)
+        public void Insert(bool saveData, ErlezQue.BillDomain.LinePri linePri)
         {
             var bill = new BillEntities();
 
@@ -24,7 +24,8 @@ namespace ErlezQue.Messaging.GrossController
             try
             {
                 bill.LinePris.Add(LinePris);
-                bill.SaveChanges();
+                if(saveData)
+                    bill.SaveChanges();
             }
             catch (Exception ex)
             {

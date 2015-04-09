@@ -6,7 +6,7 @@ namespace ErlezQue.Messaging.GrossController
 {
     public class GrossCompany : MessageController
     {
-        public void Insert(ErlezQue.BillDomain.Company company)
+        public void Insert(bool saveData, ErlezQue.BillDomain.Company company)
         {
             var bill = new BillEntities();
 
@@ -42,7 +42,8 @@ namespace ErlezQue.Messaging.GrossController
             try
             {
                 bill.Companies.Add(Company);
-                bill.SaveChanges();
+                if(saveData)
+                    bill.SaveChanges();
             }
             catch (Exception ex)
             {

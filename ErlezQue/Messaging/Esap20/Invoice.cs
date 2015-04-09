@@ -32,18 +32,15 @@ namespace ErlezQue.Messaging.Esap20
                 if (string.IsNullOrEmpty(_head.CreditReason))
                     throw new Exception("Fel: T0061. " + this.GetType());
             }
-            if (saveData) 
+            try
             {
-                try
-                {
-                    var grossHead = new GrossHead();
-                    postId = grossHead.Insert(_head);
-                    _elementCount++;
-                }
-                catch (Exception ex)
-                {
-                    throw ex;
-                }
+                var grossHead = new GrossHead();
+                postId = grossHead.Insert(saveData,_head);
+                _elementCount++;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
             }
 
             int countCompany = 1;
@@ -51,28 +48,25 @@ namespace ErlezQue.Messaging.Esap20
             {
                 item.PostId = postId;
                 item.CompanyCount = countCompany++;
-                if (saveData) 
+                try
                 {
-                    try
-                    {
-                        var grossCompany = new GrossCompany();
-                        grossCompany.Insert(item); 
-                        _elementCount++;
-                    }
-                    catch (Exception ex)
-                    {
-                        Console.WriteLine(ex.InnerException);
-                    }
+                    var grossCompany = new GrossCompany();
+                    grossCompany.Insert(saveData, item); 
+                    _elementCount++;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.InnerException);
                 }
             }
 
-            if (saveData && _bet != null)
+            if (_bet != null)
             {
                 try
                 {
                     _bet.PostId = postId;
                     var grossBet = new GrossBet();
-                    grossBet.Insert(_bet);
+                    grossBet.Insert(saveData, _bet);
                     _elementCount++;
                 }
                 catch (Exception ex)

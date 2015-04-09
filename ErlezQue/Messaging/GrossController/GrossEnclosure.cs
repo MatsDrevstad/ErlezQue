@@ -6,7 +6,7 @@ namespace ErlezQue.Messaging.GrossController
 {
     public class GrossEnclosure : MessageController
     {
-        public void Insert(ErlezQue.BillDomain.Enclosure enclosure)
+        public void Insert(bool saveData, ErlezQue.BillDomain.Enclosure enclosure)
         {
             var bill = new BillEntities();
 
@@ -23,7 +23,8 @@ namespace ErlezQue.Messaging.GrossController
             try
             {
                 bill.Enclosures.Add(Enclosures);
-                bill.SaveChanges();
+                if(saveData)
+                    bill.SaveChanges();
             }
             catch (Exception ex)
             {

@@ -12,8 +12,8 @@ namespace ErlezQue
     {
         public QueApplication()
         {
-            Console.WindowHeight = 50;
-            Console.WindowWidth = 120;
+            Console.WindowHeight = 40;
+            Console.WindowWidth = 100;
             Console.WriteLine();
             Console.ForegroundColor = ConsoleColor.DarkGray;
             Console.WriteLine("Välkomment till Erlez Que");

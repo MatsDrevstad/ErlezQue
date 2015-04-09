@@ -83,7 +83,20 @@ namespace ErlezQue.Mapper.Invoice
                     invoice.Status = "Synced";
                     _bull.SaveChanges();
                 }
+                else
+                {
+                    invoice.Status = "Pending";
+                    _bull.SaveChanges();
+                }
             }
+            var invoicesPending = _bull.Invoices
+                .Where(i => i.Status == "Pending");
+
+            foreach (var item in invoicesPending)
+            {
+                item.Status = "Created";
+            }
+            _bull.SaveChanges();
             return _elementCount;
         }
     }

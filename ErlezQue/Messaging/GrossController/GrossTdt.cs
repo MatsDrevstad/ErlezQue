@@ -6,7 +6,7 @@ namespace ErlezQue.Messaging.GrossController
 {
     public class GrossTdt : MessageController
     {
-        public void Insert(ErlezQue.BillDomain.Tdt tdt)
+        public void Insert(bool saveData, ErlezQue.BillDomain.Tdt tdt)
         {
             var bill = new BillEntities();
 
@@ -21,7 +21,8 @@ namespace ErlezQue.Messaging.GrossController
 	        try
 	        {
 	            bill.Tdts.Add(Tdts);
-	            bill.SaveChanges();
+	            if(saveData)
+	               	bill.SaveChanges();
 	        }
 	        catch (Exception ex)
 	        {
