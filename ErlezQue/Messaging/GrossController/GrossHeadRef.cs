@@ -1,16 +1,16 @@
-using ErlezQue.BillDomain;
-using ErlezQue.BullDomain;
+using ErlezQue.Domain;
+using ErlezQue.Domain;
 using System;
 
 namespace ErlezQue.Messaging.GrossController
 {
     public class GrossHeadRef : MessageController
     {
-        public void Insert(bool saveData, ErlezQue.BillDomain.HeadRef headRef)
+        public void Insert(bool saveData, ErlezQue.Domain.HeadRef headRef)
         {
-            var bill = new BillEntities();
+            var bill = new ErlezWebUIEntities();
 
-	    var HeadRefs = new ErlezQue.BillDomain.HeadRef()
+	    var HeadRefs = new ErlezQue.Domain.HeadRef()
             {
                 PostId = headRef.PostId,
                 HeadRefCount = headRef.HeadRefCount,

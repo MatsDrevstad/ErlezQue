@@ -37,9 +37,9 @@ namespace ErlezQue.Infrastructure
 
         private string ConnectionString(string str)
         {
-            string connStr = ConfigurationManager.ConnectionStrings["ErlezQue.Properties.Settings.BillAdo"].ToString();
-            if (str == "Bull")
-                connStr = ConfigurationManager.ConnectionStrings["ErlezQue.Properties.Settings.BullAdo"].ToString();
+            string connStr = ConfigurationManager.ConnectionStrings["ErlezQue.Properties.Settings.ErlezWebUIAdo"].ToString();
+            //if (str == "Bull")
+            //    connStr = ConfigurationManager.ConnectionStrings["ErlezQue.Properties.Settings.BullAdo"].ToString();
 
             SqlConnectionStringBuilder sb = new SqlConnectionStringBuilder(connStr);
 

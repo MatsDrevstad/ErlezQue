@@ -1,16 +1,16 @@
-using ErlezQue.BillDomain;
-using ErlezQue.BullDomain;
+using ErlezQue.Domain;
+using ErlezQue.Domain;
 using System;
 
 namespace ErlezQue.Messaging.GrossController
 {
     public class GrossTdt : MessageController
     {
-        public void Insert(bool saveData, ErlezQue.BillDomain.Tdt tdt)
+        public void Insert(bool saveData, ErlezQue.Domain.Tdt tdt)
         {
-            var bill = new BillEntities();
+            var bill = new ErlezWebUIEntities();
 
-	        var Tdts = new ErlezQue.BillDomain.Tdt()
+	        var Tdts = new ErlezQue.Domain.Tdt()
             {
                 PostId = tdt.PostId,
                 TdtCount = tdt.TdtCount,

@@ -1,16 +1,16 @@
-using ErlezQue.BillDomain;
-using ErlezQue.BullDomain;
+using ErlezQue.Domain;
+using ErlezQue.Domain;
 using System;
 
 namespace ErlezQue.Messaging.GrossController
 {
     public class GrossCompany : MessageController
     {
-        public void Insert(bool saveData, ErlezQue.BillDomain.Company company)
+        public void Insert(bool saveData, ErlezQue.Domain.Company company)
         {
-            var bill = new BillEntities();
+            var bill = new ErlezWebUIEntities();
 
-            var Company = new ErlezQue.BillDomain.Company()
+            var Company = new ErlezQue.Domain.Company()
             {
                 PostId = company.PostId,
                 CompanyCount = company.CompanyCount,

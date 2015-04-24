@@ -1,16 +1,16 @@
-using ErlezQue.BillDomain;
-using ErlezQue.BullDomain;
+using ErlezQue.Domain;
+using ErlezQue.Domain;
 using System;
 
 namespace ErlezQue.Messaging.GrossController
 {
     public class GrossEnclosure : MessageController
     {
-        public void Insert(bool saveData, ErlezQue.BillDomain.Enclosure enclosure)
+        public void Insert(bool saveData, ErlezQue.Domain.Enclosure enclosure)
         {
-            var bill = new BillEntities();
+            var bill = new ErlezWebUIEntities();
 
-            var Enclosures = new ErlezQue.BillDomain.Enclosure()
+            var Enclosures = new ErlezQue.Domain.Enclosure()
             {
                 PostId = enclosure.PostId,
                 EnclosureCount = enclosure.EnclosureCount,

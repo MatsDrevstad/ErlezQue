@@ -1,16 +1,16 @@
-using ErlezQue.BillDomain;
-using ErlezQue.BullDomain;
+using ErlezQue.Domain;
+using ErlezQue.Domain;
 using System;
 
 namespace ErlezQue.Messaging.GrossController
 {
     public class GrossLine : MessageController
     {
-        public long Insert(bool saveData, ErlezQue.BillDomain.Line line)
+        public long Insert(bool saveData, ErlezQue.Domain.Line line)
         {
-            var bill = new BillEntities();
+            var bill = new ErlezWebUIEntities();
 
-	        var Line = new ErlezQue.BillDomain.Line()
+	        var Line = new ErlezQue.Domain.Line()
             {
                 PostId = line.PostId,
                 LineId = line.LineId,

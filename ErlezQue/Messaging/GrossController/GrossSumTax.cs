@@ -1,16 +1,16 @@
-using ErlezQue.BillDomain;
-using ErlezQue.BullDomain;
+using ErlezQue.Domain;
+using ErlezQue.Domain;
 using System;
 
 namespace ErlezQue.Messaging.GrossController
 {
     public class GrossSumTax : MessageController
     {
-        public void Insert(bool saveData, ErlezQue.BillDomain.SumTax sumTax)
+        public void Insert(bool saveData, ErlezQue.Domain.SumTax sumTax)
         {
-            var bill = new BillEntities();
+            var bill = new ErlezWebUIEntities();
 
-	        var SumTaxes = new ErlezQue.BillDomain.SumTax()
+	        var SumTaxes = new ErlezQue.Domain.SumTax()
             {
                 PostId = sumTax.PostId,
                 SumTaxCount = sumTax.SumTaxCount,

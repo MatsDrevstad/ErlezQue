@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="4b6cdbc2718044e9a786b5d96244898f" Name="Diagram1">
+        <EntityTypeShape EntityType="ErlezWebUIModel.C__MigrationHistory" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ErlezWebUIModel.Alc" Width="1.5" PointX="3" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ErlezWebUIModel.Article" Width="1.5" PointX="8" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ErlezWebUIModel.AspNetRole" Width="1.5" PointX="10.75" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="ErlezWebUIModel.AspNetUserClaim" Width="1.5" PointX="15.25" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ErlezWebUIModel.AspNetUserLogin" Width="1.5" PointX="15.25" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ErlezWebUIModel.AspNetUser" Width="1.5" PointX="13" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ErlezWebUIModel.Bet" Width="1.5" PointX="3" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ErlezWebUIModel.Company" Width="1.5" PointX="3" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="ErlezWebUIModel.CompanyB2" Width="1.5" PointX="2.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ErlezWebUIModel.CompanyBuyer" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ErlezWebUIModel.CompanySeller" Width="1.5" PointX="5.75" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="ErlezWebUIModel.Enclosure" Width="1.5" PointX="3" PointY="19.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ErlezWebUIModel.Head" Width="1.5" PointX="0.75" PointY="25.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ErlezWebUIModel.HeadRef" Width="1.5" PointX="3" PointY="22.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ErlezWebUIModel.Invoice" Width="1.5" PointX="8.75" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ErlezWebUIModel.Line" Width="1.5" PointX="3" PointY="29.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ErlezWebUIModel.LineAlc" Width="1.5" PointX="5.25" PointY="25.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ErlezWebUIModel.LinePri" Width="1.5" PointX="5.25" PointY="30" IsExpanded="true" />
+        <EntityTypeShape EntityType="ErlezWebUIModel.LineRef" Width="1.5" PointX="5.25" PointY="33.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ErlezWebUIModel.LineTax" Width="1.5" PointX="5.25" PointY="37" IsExpanded="true" />
+        <EntityTypeShape EntityType="ErlezWebUIModel.Order" Width="1.5" PointX="11" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ErlezWebUIModel.Sum" Width="1.5" PointX="3" PointY="40.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ErlezWebUIModel.SumTax" Width="1.5" PointX="3" PointY="45.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ErlezWebUIModel.Tdt" Width="1.5" PointX="3" PointY="49.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ErlezWebUIModel.Tod" Width="1.5" PointX="3" PointY="52.375" IsExpanded="true" />
+        <AssociationConnector Association="ErlezWebUIModel.FK_dbo_Alc_dbo_Head_Head_PostId" ManuallyRouted="false" />
+        <AssociationConnector Association="ErlezWebUIModel.FK_Article_CompanySeller" ManuallyRouted="false" />
+        <AssociationConnector Association="ErlezWebUIModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="ErlezWebUIModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="ErlezWebUIModel.FK_dbo_Bet_dbo_Head_PostId" ManuallyRouted="false" />
+        <AssociationConnector Association="ErlezWebUIModel.FK_dbo_Company_dbo_Head_Head_PostId" ManuallyRouted="false" />
+        <AssociationConnector Association="ErlezWebUIModel.FK_Order_CompanyBuyer" ManuallyRouted="false" />
+        <AssociationConnector Association="ErlezWebUIModel.FK_Order_CompanySeller" ManuallyRouted="false" />
+        <AssociationConnector Association="ErlezWebUIModel.FK_dbo_Enclosure_dbo_Head_Head_PostId" ManuallyRouted="false" />
+        <AssociationConnector Association="ErlezWebUIModel.FK_dbo_HeadRef_dbo_Head_Head_PostId" ManuallyRouted="false" />
+        <AssociationConnector Association="ErlezWebUIModel.FK_dbo_Line_dbo_Head_Head_PostId" ManuallyRouted="false" />
+        <AssociationConnector Association="ErlezWebUIModel.FK_dbo_Sum_dbo_Head_PostId" ManuallyRouted="false" />
+        <AssociationConnector Association="ErlezWebUIModel.FK_dbo_SumTax_dbo_Head_Head_PostId" ManuallyRouted="false" />
+        <AssociationConnector Association="ErlezWebUIModel.FK_dbo_Tdt_dbo_Head_Head_PostId" ManuallyRouted="false" />
+        <AssociationConnector Association="ErlezWebUIModel.FK_dbo_Tod_dbo_Head_Head_PostId" ManuallyRouted="false" />
+        <AssociationConnector Association="ErlezWebUIModel.FK_Order_Invoice" ManuallyRouted="false" />
+        <AssociationConnector Association="ErlezWebUIModel.FK_dbo_LineAlc_dbo_Line_Line_PostId" ManuallyRouted="false" />
+        <AssociationConnector Association="ErlezWebUIModel.FK_dbo_LinePri_dbo_Line_Line_PostId" ManuallyRouted="false" />
+        <AssociationConnector Association="ErlezWebUIModel.FK_dbo_LineRef_dbo_Line_Line_PostId" ManuallyRouted="false" />
+        <AssociationConnector Association="ErlezWebUIModel.FK_dbo_LineTax_dbo_Line_Line_PostId" ManuallyRouted="false" />
+        <AssociationConnector Association="ErlezWebUIModel.AspNetUserRoles" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

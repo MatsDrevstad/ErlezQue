@@ -1,5 +1,4 @@
-﻿using ErlezQue.BillDomain;
-using ErlezQue.BullDomain;
+﻿using ErlezQue.Domain;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,16 +9,16 @@ namespace ErlezQue.Mapper.Invoice
 {
     public class EdiInvoice
     {
-        private BullEntities _bull;
+        private  ErlezWebUIEntities context;
         private int _elementCount = 0;
 
         public EdiInvoice()
 	    {
-            _bull = new BullEntities();
+            context = new ErlezWebUIEntities();
 	    }
 
         //Head 1..1
-        public Head GetHead(ErlezQue.BullDomain.Invoice inv)
+        public Head GetHead(ErlezQue.Domain.Invoice inv)
         {
             var head = new Head()
             {
@@ -31,7 +30,7 @@ namespace ErlezQue.Mapper.Invoice
         }
 
         //HeadRef 0..*
-        public IEnumerable<HeadRef> GetHeadRef(ErlezQue.BullDomain.Invoice inv)
+        public IEnumerable<HeadRef> GetHeadRef(ErlezQue.Domain.Invoice inv)
         {
             var list = new List<HeadRef>();
             list.Add(new HeadRef() 
@@ -43,30 +42,30 @@ namespace ErlezQue.Mapper.Invoice
         }
 
         //Company 2..*
-        private IEnumerable<Company> GetCompany(ErlezQue.BullDomain.Invoice inv)
+        private IEnumerable<Company> GetCompany(ErlezQue.Domain.Invoice inv)
         {
             var list = new List<Company>();
             list.Add(new Company()
             {
                 CompanyQual = "SE",
-                VatNo = _bull.CompanySellers.Find(inv.Orders.Where(i => i.InvoiceId == inv.Id).FirstOrDefault().CompanySellerId).OrgNo,
-                Name = _bull.CompanySellers.Find(inv.Orders.Where(i => i.InvoiceId == inv.Id).FirstOrDefault().CompanySellerId).Name,
-                City = _bull.CompanySellers.Find(inv.Orders.Where(i => i.InvoiceId == inv.Id).FirstOrDefault().CompanySellerId).City,
+                VatNo = context.CompanySellers.Find(inv.Orders.Where(i => i.InvoiceId == inv.Id).FirstOrDefault().CompanySellerId).OrgNo,
+                Name = context.CompanySellers.Find(inv.Orders.Where(i => i.InvoiceId == inv.Id).FirstOrDefault().CompanySellerId).Name,
+                City = context.CompanySellers.Find(inv.Orders.Where(i => i.InvoiceId == inv.Id).FirstOrDefault().CompanySellerId).City,
             });
 
             list.Add(new Company()
             {
                 CompanyQual = "BY",
-                VatNo = _bull.CompanyBuyers.Find(inv.Orders.Where(i => i.InvoiceId == inv.Id).FirstOrDefault().CompanyBuyerId).OrgNo,
-                Name = _bull.CompanyBuyers.Find(inv.Orders.Where(i => i.InvoiceId == inv.Id).FirstOrDefault().CompanyBuyerId).Name,
-                City = _bull.CompanyBuyers.Find(inv.Orders.Where(i => i.InvoiceId == inv.Id).FirstOrDefault().CompanyBuyerId).City,
+                VatNo = context.CompanyBuyers.Find(inv.Orders.Where(i => i.InvoiceId == inv.Id).FirstOrDefault().CompanyBuyerId).OrgNo,
+                Name = context.CompanyBuyers.Find(inv.Orders.Where(i => i.InvoiceId == inv.Id).FirstOrDefault().CompanyBuyerId).Name,
+                City = context.CompanyBuyers.Find(inv.Orders.Where(i => i.InvoiceId == inv.Id).FirstOrDefault().CompanyBuyerId).City,
             });
 
             return list.AsEnumerable();
         }
         
         //Bet 1..1
-        private Bet GetBet(ErlezQue.BullDomain.Invoice inv)
+        private Bet GetBet(ErlezQue.Domain.Invoice inv)
         {
             var bet = new Bet()
             { 
@@ -78,25 +77,25 @@ namespace ErlezQue.Mapper.Invoice
         }
 
         //Tdt 0..*
-        public IEnumerable<Tdt> GetTdts(ErlezQue.BullDomain.Invoice inv)
+        public IEnumerable<Tdt> GetTdts(ErlezQue.Domain.Invoice inv)
         {
             return null;
         }
 
         //Tod 0..*
-        public IEnumerable<Tod> GetTods(ErlezQue.BullDomain.Invoice inv)
+        public IEnumerable<Tod> GetTods(ErlezQue.Domain.Invoice inv)
         {
             return null;
         }
 
         //Alc 0..*
-        public IEnumerable<Alc> GetAlcs(ErlezQue.BullDomain.Invoice inv)
+        public IEnumerable<Alc> GetAlcs(ErlezQue.Domain.Invoice inv)
         {
             return null;
         }
 
         //Line 1..*
-        public IEnumerable<Line> GetLines(ErlezQue.BullDomain.Invoice inv)
+        public IEnumerable<Line> GetLines(ErlezQue.Domain.Invoice inv)
         {
             var list = new List<Line>();
             foreach (var item in inv.Orders)
@@ -114,13 +113,13 @@ namespace ErlezQue.Mapper.Invoice
         }
 
         //LineRef 0..*
-        public IEnumerable<LineRef> GetLineRefs(ErlezQue.BullDomain.Invoice inv)
+        public IEnumerable<LineRef> GetLineRefs(ErlezQue.Domain.Invoice inv)
         {
             return null;
         }
 
         //LinePri 1..*
-        public IEnumerable<LinePri> GetLinePris(ErlezQue.BullDomain.Invoice inv)
+        public IEnumerable<LinePri> GetLinePris(ErlezQue.Domain.Invoice inv)
         {
             var list = new List<LinePri>();
             foreach (var item in inv.Orders)
@@ -137,7 +136,7 @@ namespace ErlezQue.Mapper.Invoice
         }
 
         //LineTax 1..*
-        public IEnumerable<LineTax> GetLineTaxes(ErlezQue.BullDomain.Invoice inv)
+        public IEnumerable<LineTax> GetLineTaxes(ErlezQue.Domain.Invoice inv)
         {
             var list = new List<LineTax>();
             foreach (var item in inv.Orders)
@@ -153,13 +152,13 @@ namespace ErlezQue.Mapper.Invoice
         }
 
         //LineAlc 0..*
-        public IEnumerable<LineAlc> GetLineAlcs(ErlezQue.BullDomain.Invoice inv)
+        public IEnumerable<LineAlc> GetLineAlcs(ErlezQue.Domain.Invoice inv)
         {
             return null;
         }
 
         //Sum 1..1
-        public Sum GetSum(ErlezQue.BullDomain.Invoice inv)
+        public Sum GetSum(ErlezQue.Domain.Invoice inv)
         {
             var totalQuantity = 0m;
             var totalLines = 0;
@@ -182,7 +181,7 @@ namespace ErlezQue.Mapper.Invoice
         }
         
         //SumTax 1..*
-        public IEnumerable<SumTax> GetSumTaxes(ErlezQue.BullDomain.Invoice inv)
+        public IEnumerable<SumTax> GetSumTaxes(ErlezQue.Domain.Invoice inv)
         {
             var list = new List<SumTax>();
 
@@ -204,9 +203,9 @@ namespace ErlezQue.Mapper.Invoice
 
         internal int Sync(bool saveData)
         {
-            while (_bull.Invoices.Count(i => i.Status == "Created") > 0)
+            while (context.Invoices.Count(i => i.Status == "Created") > 0)
             {
-                var invoice = _bull.Invoices
+                var invoice = context.Invoices
                     .Where(i => i.Status == "Created")
                     .FirstOrDefault();
 
@@ -232,22 +231,22 @@ namespace ErlezQue.Mapper.Invoice
                 if (saveData)
                 {
                     invoice.Status = "Synced";
-                    _bull.SaveChanges();
+                    context.SaveChanges();
                 }
                 else
                 {
                     invoice.Status = "Pending";
-                    _bull.SaveChanges();
+                    context.SaveChanges();
                 }
             }
-            var invoicesPending = _bull.Invoices
+            var invoicesPending = context.Invoices
                 .Where(i => i.Status == "Pending");
 
             foreach (var item in invoicesPending)
             {
                 item.Status = "Created";
             }
-            _bull.SaveChanges();
+            context.SaveChanges();
             return _elementCount;
         }
     }

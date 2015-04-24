@@ -1,16 +1,15 @@
-using ErlezQue.BillDomain;
-using ErlezQue.BullDomain;
+using ErlezQue.Domain;
 using System;
 
 namespace ErlezQue.Messaging.GrossController
 {
     public class GrossTod : MessageController
     {
-        public void Insert(bool saveData, ErlezQue.BillDomain.Tod tod)
+        public void Insert(bool saveData, ErlezQue.Domain.Tod tod)
         {
-            var bill = new BillEntities();
+            var bill = new ErlezWebUIEntities();
 
-	        var Tods = new ErlezQue.BillDomain.Tod()
+	        var Tods = new ErlezQue.Domain.Tod()
             {
                 PostId = tod.PostId,
                 TodCount = tod.TodCount,

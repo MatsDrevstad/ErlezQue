@@ -1,16 +1,16 @@
-using ErlezQue.BillDomain;
-using ErlezQue.BullDomain;
+using ErlezQue.Domain;
+using ErlezQue.Domain;
 using System;
 
 namespace ErlezQue.Messaging.GrossController
 {
     public class GrossLineRef : MessageController
     {
-        public void Insert(bool saveData, ErlezQue.BillDomain.LineRef lineRef)
+        public void Insert(bool saveData, ErlezQue.Domain.LineRef lineRef)
         {
-            var bill = new BillEntities();
+            var bill = new ErlezWebUIEntities();
 
-    	    var LineRefs = new ErlezQue.BillDomain.LineRef()
+    	    var LineRefs = new ErlezQue.Domain.LineRef()
             {
                 LineId = lineRef.LineId,
                 LineRefCount = lineRef.LineRefCount,

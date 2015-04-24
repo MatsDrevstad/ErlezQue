@@ -26,20 +26,20 @@ namespace ErlezQue.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(localdb)\\v11.0;Initial Catalog=Bill;Integrated Security=True")]
-        public string BillAdo {
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(localdb)\\v11.0;Initial Catalog=Bull;Integrated Security=True")]
+        public string BullAdo {
             get {
-                return ((string)(this["BillAdo"]));
+                return ((string)(this["BullAdo"]));
             }
         }
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(localdb)\\v11.0;Initial Catalog=Bull;Integrated Security=True")]
-        public string BullAdo {
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(localdb)\\v11.0;Initial Catalog=ErlezWebUI;Integrated Security=True")]
+        public string BillAdo {
             get {
-                return ((string)(this["BullAdo"]));
+                return ((string)(this["BillAdo"]));
             }
         }
     }

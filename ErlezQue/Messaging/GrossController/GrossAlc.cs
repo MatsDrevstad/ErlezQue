@@ -1,16 +1,16 @@
-using ErlezQue.BillDomain;
-using ErlezQue.BullDomain;
+using ErlezQue.Domain;
+using ErlezQue.Domain;
 using System;
 
 namespace ErlezQue.Messaging.GrossController
 {
     public class GrossAlc : MessageController
     {
-        public void Insert(bool saveData, ErlezQue.BillDomain.Alc alc)
+        public void Insert(bool saveData, ErlezQue.Domain.Alc alc)
         {
-            var bill = new BillEntities();
+            var bill = new ErlezWebUIEntities();
 
-            var Alcs = new ErlezQue.BillDomain.Alc()
+            var Alcs = new ErlezQue.Domain.Alc()
             {
                 PostId = alc.PostId,
                 AlcCount = alc.AlcCount,

@@ -1,16 +1,16 @@
-using ErlezQue.BillDomain;
-using ErlezQue.BullDomain;
+using ErlezQue.Domain;
+using ErlezQue.Domain;
 using System;
 
 namespace ErlezQue.Messaging.GrossController
 {
     public class GrossHead : MessageController
     {
-        public int Insert(bool saveData, ErlezQue.BillDomain.Head head)
+        public int Insert(bool saveData, ErlezQue.Domain.Head head)
         {
-            var bill = new BillEntities();
+            var bill = new ErlezWebUIEntities();
 
-            var Head = new ErlezQue.BillDomain.Head()
+            var Head = new ErlezQue.Domain.Head()
             {
                 Flow = head.Flow,
                 InvoiceNo = head.InvoiceNo,

@@ -1,5 +1,5 @@
-using ErlezQue.BillDomain;
-using ErlezQue.BullDomain;
+using ErlezQue.Domain;
+using ErlezQue.Domain;
 using ErlezQue.Messaging;
 using System;
 
@@ -7,11 +7,11 @@ namespace ErlezQue.Messaging.GrossController
 {
     public class GrossBet : MessageController
     {
-        public void Insert(bool saveData, ErlezQue.BillDomain.Bet bet)
+        public void Insert(bool saveData, ErlezQue.Domain.Bet bet)
         {
-            var bill = new BillEntities();
+            var bill = new ErlezWebUIEntities();
 
-	        var Bets = new ErlezQue.BillDomain.Bet()
+	        var Bets = new ErlezQue.Domain.Bet()
             {
                 PostId = bet.PostId,
                 DueDate = MatchGrossFormat(bet.DueDate, @"^\d{4}-\d{2}-\d{2}$", this.GetType()),

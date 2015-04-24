@@ -1,16 +1,16 @@
-using ErlezQue.BillDomain;
-using ErlezQue.BullDomain;
+using ErlezQue.Domain;
+using ErlezQue.Domain;
 using System;
 
 namespace ErlezQue.Messaging.GrossController
 {
     public class GrossLinePri : MessageController
     {
-        public void Insert(bool saveData, ErlezQue.BillDomain.LinePri linePri)
+        public void Insert(bool saveData, ErlezQue.Domain.LinePri linePri)
         {
-            var bill = new BillEntities();
+            var bill = new ErlezWebUIEntities();
 
-    	    var LinePris = new ErlezQue.BillDomain.LinePri()
+    	    var LinePris = new ErlezQue.Domain.LinePri()
             {
                 LineId = linePri.LineId,
                 LinePriCount = linePri.LinePriCount,

@@ -1,5 +1,4 @@
-﻿using ErlezQue.BillDomain;
-using ErlezQue.BullDomain;
+﻿using ErlezQue.Domain;
 using ErlezQue.Messaging.GrossController;
 using System;
 using System.Collections.Generic;
