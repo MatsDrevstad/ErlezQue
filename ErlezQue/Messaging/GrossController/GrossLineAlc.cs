@@ -1,5 +1,4 @@
 using ErlezQue.Domain;
-using ErlezQue.Domain;
 using System;
 
 namespace ErlezQue.Messaging.GrossController

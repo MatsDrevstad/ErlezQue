@@ -34,7 +34,7 @@ namespace ErlezQue.Messaging.Esap20
                 var stopwatch = new Stopwatch();
                 stopwatch.Start();
 
-                var ediInvoice = new EdiOrders();
+                var ediInvoice = new EdiInvoic();
                 var elementCount = ediInvoice.Sync(saveData);
 
                 PrintStatus(stopwatch, elementCount);

@@ -5,14 +5,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ErlezQue.Mapper.Orders
+namespace ErlezQue.Mapper.Invoic
 {
-    public class EdiOrders
+    public class EdiInvoic
     {
         private  ErlezWebUIEntities context;
         private int _elementCount = 0;
 
-        public EdiOrders()
+        public EdiInvoic()
 	    {
             context = new ErlezWebUIEntities();
 	    }

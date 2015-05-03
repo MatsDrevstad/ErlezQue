@@ -1,11 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.30723.0
+VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ErlezQue", "ErlezQue\ErlezQue.csproj", "{A59C76F0-6683-4490-A6C4-2B69BBD4F906}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestErlez", "UnitTestErlez\UnitTestErlez.csproj", "{AF141693-616C-4DD3-91C0-B25FD5E6A981}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +15,6 @@ Global
 		{A59C76F0-6683-4490-A6C4-2B69BBD4F906}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A59C76F0-6683-4490-A6C4-2B69BBD4F906}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A59C76F0-6683-4490-A6C4-2B69BBD4F906}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AF141693-616C-4DD3-91C0-B25FD5E6A981}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AF141693-616C-4DD3-91C0-B25FD5E6A981}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AF141693-616C-4DD3-91C0-B25FD5E6A981}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AF141693-616C-4DD3-91C0-B25FD5E6A981}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
