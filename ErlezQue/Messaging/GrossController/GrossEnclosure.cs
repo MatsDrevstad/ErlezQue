@@ -4,7 +4,7 @@ using System;
 
 namespace ErlezQue.Messaging.GrossController
 {
-    public class GrossEnclosure : MessageController
+    public class GrossA04 : MessageController
     {
         public void Insert(bool saveData, ErlezQue.Domain.Enclosure enclosure)
         {

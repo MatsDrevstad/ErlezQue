@@ -4,7 +4,7 @@ using System;
 
 namespace ErlezQue.Messaging.GrossController
 {
-    public class GrossHeadRef : MessageController
+    public class GrossB02 : MessageController
     {
         public void Insert(bool saveData, ErlezQue.Domain.HeadRef headRef)
         {

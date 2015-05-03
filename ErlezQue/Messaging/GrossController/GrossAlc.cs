@@ -4,7 +4,7 @@ using System;
 
 namespace ErlezQue.Messaging.GrossController
 {
-    public class GrossAlc : MessageController
+    public class GrossA01 : MessageController
     {
         public void Insert(bool saveData, ErlezQue.Domain.Alc alc)
         {

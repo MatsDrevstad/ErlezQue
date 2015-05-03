@@ -5,7 +5,7 @@ using System;
 
 namespace ErlezQue.Messaging.GrossController
 {
-    public class GrossBet : MessageController
+    public class GrossA02 : MessageController
     {
         public void Insert(bool saveData, ErlezQue.Domain.Bet bet)
         {

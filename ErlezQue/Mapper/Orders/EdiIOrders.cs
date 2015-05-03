@@ -5,14 +5,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ErlezQue.Mapper.Invoice
+namespace ErlezQue.Mapper.Orders
 {
-    public class EdiInvoice
+    public class EdiOrders
     {
         private  ErlezWebUIEntities context;
         private int _elementCount = 0;
 
-        public EdiInvoice()
+        public EdiOrders()
 	    {
             context = new ErlezWebUIEntities();
 	    }
@@ -224,7 +224,7 @@ namespace ErlezQue.Mapper.Invoice
                 var sum = GetSum(invoice);
                 var sumTaxes = GetSumTaxes(invoice);
 
-                var messageController = new Messaging.Esap20.Invoice(head, headRefs, companies, 
+                var messageController = new Messaging.Esap20.Orders(head, headRefs, companies, 
                     bet, tdts, tods, alcs, lines, lineRefs, linePris, lineTaxes, lineAlcs, sum, sumTaxes);
                 _elementCount = _elementCount + messageController.Save(saveData);
 

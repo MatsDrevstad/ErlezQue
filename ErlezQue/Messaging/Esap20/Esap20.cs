@@ -5,15 +5,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ErlezQue.Domain;
-using ErlezQue.Domain;
-using ErlezQue.Mapper.Invoice;
 using System.Threading;
+using ErlezQue.Mapper.Invoic;
 
 namespace ErlezQue.Messaging.Esap20
 {
     class Esap20 : MessageController
     {
-        public static void GlobalSettings()
+        public static void Settings()
         {
             bool loop = true;
 
@@ -35,7 +34,7 @@ namespace ErlezQue.Messaging.Esap20
                 var stopwatch = new Stopwatch();
                 stopwatch.Start();
 
-                var ediInvoice = new EdiInvoice();
+                var ediInvoice = new EdiOrders();
                 var elementCount = ediInvoice.Sync(saveData);
 
                 PrintStatus(stopwatch, elementCount);

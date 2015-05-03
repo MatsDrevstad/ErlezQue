@@ -11,7 +11,7 @@ namespace ErlezQue.Messaging.Esap20
     /// <summary>
     /// Tar hand om logiken kring att spara en INVOIC
     /// </summary>
-    public class Invoice
+    public class Orders
     {
         private int postId;
         private long lineId;
@@ -48,7 +48,7 @@ namespace ErlezQue.Messaging.Esap20
         /// <summary>
         /// Spara ett EDI meddelande
         /// </summary>
-        public Invoice(Head head, 
+        public Orders(Head head, 
             IEnumerable<HeadRef> headRefs, 
             IEnumerable<Company> companies, 
             Bet bet, 
@@ -92,7 +92,7 @@ namespace ErlezQue.Messaging.Esap20
             //Insert
             try
             {
-                var gross = new GrossHead();
+                var gross = new GrossB01();
                 postId = gross.Insert(saveData, _head);
                 _elementCount++;
             }
@@ -101,7 +101,6 @@ namespace ErlezQue.Messaging.Esap20
                 throw ex;
             }
 
-            // ev tillfällig null test pga utveckling
             if (_headRefs != null)
             {
                 int countTdt = 1;
@@ -111,7 +110,7 @@ namespace ErlezQue.Messaging.Esap20
                     item.HeadRefCount = countTdt++;
                     try
                     {
-                        var gross = new GrossHeadRef();
+                        var gross = new GrossB02();
                         gross.Insert(saveData, item);
                         _elementCount++;
                     }
@@ -122,8 +121,6 @@ namespace ErlezQue.Messaging.Esap20
                 }
             }
 
-
-            // ev tillfällig null test pga utveckling
             if (_companies != null)
             {
                 int countCompany = 1;
@@ -133,7 +130,7 @@ namespace ErlezQue.Messaging.Esap20
                     item.CompanyCount = countCompany++;
                     try
                     {
-                        var gross = new GrossCompany();
+                        var gross = new GrossA03();
                         gross.Insert(saveData, item);
                         _elementCount++;
                     }
@@ -144,13 +141,12 @@ namespace ErlezQue.Messaging.Esap20
                 }
             }
 
-            // ev tillfällig null test pga utveckling
             if (_bet != null)
             {
                 try
                 {
                     _bet.PostId = postId;
-                    var gross = new GrossBet();
+                    var gross = new GrossA02();
                     gross.Insert(saveData, _bet);
                     _elementCount++;
                 }
@@ -160,7 +156,6 @@ namespace ErlezQue.Messaging.Esap20
                 }
             }
 
-            // ev tillfällig null test pga utveckling
             if (_tdts != null)
             {
                 int countTdt = 1;
@@ -181,7 +176,6 @@ namespace ErlezQue.Messaging.Esap20
                 }
             }
 
-            // ev tillfällig null test pga utveckling
             if (_tods != null)
             {
                 int countTods = 1;
@@ -202,7 +196,6 @@ namespace ErlezQue.Messaging.Esap20
                 }
             }
 
-            // ev tillfällig null test pga utveckling
             if (_alcs != null)
             {
                 int countAlcs = 1;
@@ -212,7 +205,7 @@ namespace ErlezQue.Messaging.Esap20
                     item.AlcCount = countAlcs++;
                     try
                     {
-                        var gross = new GrossAlc();
+                        var gross = new GrossA01();
                         gross.Insert(saveData, item);
                         _elementCount++;
                     }
@@ -223,7 +216,6 @@ namespace ErlezQue.Messaging.Esap20
                 }
             }
 
-            // ev tillfällig null test pga utveckling
             if (_lines != null)
             {
                 int countLines = 1;
@@ -233,7 +225,7 @@ namespace ErlezQue.Messaging.Esap20
                     item.LineCount = countLines++;
                     try
                     {
-                        var gross = new GrossLine();
+                        var gross = new GrossB03();
                         lineId = gross.Insert(saveData, item);
                         _elementCount++;
                     }
@@ -244,7 +236,6 @@ namespace ErlezQue.Messaging.Esap20
                 }
             }
 
-            // ev tillfällig null test pga utveckling
             if (_lineRefs != null)
             {
                 int countLineRefs = 1;
@@ -265,7 +256,6 @@ namespace ErlezQue.Messaging.Esap20
                 }
             }
 
-            // ev tillfällig null test pga utveckling
             if (_linePris != null)
             {
                 int countLinePris = 1;
@@ -286,7 +276,6 @@ namespace ErlezQue.Messaging.Esap20
                 }
             }
 
-            // ev tillfällig null test pga utveckling
             if (_lineTaxes != null)
             {
                 int countLineTaxes = 1;
@@ -307,7 +296,6 @@ namespace ErlezQue.Messaging.Esap20
                 }
             }
 
-            // ev tillfällig null test pga utveckling
             if (_lineAlcs != null)
             {
                 int countLineAlcs = 1;
@@ -317,7 +305,7 @@ namespace ErlezQue.Messaging.Esap20
                     item.LineAlcCount = countLineAlcs++;
                     try
                     {
-                        var gross = new GrossLineAlc();
+                        var gross = new GrossB04();
                         gross.Insert(saveData, item);
                         _elementCount++;
                     }
@@ -328,7 +316,6 @@ namespace ErlezQue.Messaging.Esap20
                 }
             }
 
-            // ev tillfällig null test pga utveckling
             if (_sum != null)
             {
                 try
@@ -344,7 +331,6 @@ namespace ErlezQue.Messaging.Esap20
                 }
             }
 
-            // ev tillfällig null test pga utveckling
             if (_sumTaxes != null)
             {
                 int countSumTaxes = 1;

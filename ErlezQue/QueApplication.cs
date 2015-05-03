@@ -38,7 +38,7 @@ namespace ErlezQue
             string input = Console.ReadLine();
             Console.ForegroundColor = ConsoleColor.Gray;
 
-            if (input.Equals("4")) { Esap20.GlobalSettings(); }
+            if (input.Equals("4")) { Esap20.Settings(); }
             if (input.Equals("5")) { Esap20.Sync(false); }
             if (input.Equals("6")) { Esap20.Sync(true); }
             if (input.Equals("7")) { Esap20.StartQue(); }

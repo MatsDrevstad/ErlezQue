@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ErlezQue.Messaging.Esap20.Esap20">
+    <Position X="10.5" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAACAAAACAAAAAAAAAAAAgAAAAAAAAAA=</HashCode>
+      <FileName>Messaging\Esap20\Esap20.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ErlezQue.Messaging.Esap20.Orders">
+    <Position X="6" Y="1.25" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>YEJAAIAAAAgAAAAAAAABKAIAAAEAAQAAAAACAAABEAA=</HashCode>
+      <FileName>Messaging\Esap20\Invoic.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ErlezQue.Messaging.GrossController.GrossA02" Collapsed="true">
+    <Position X="7.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Messaging\GrossController\GrossBet.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ErlezQue.Messaging.GrossController.GrossA03" Collapsed="true">
+    <Position X="9" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Messaging\GrossController\GrossCompany.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ErlezQue.Messaging.GrossController.GrossA04" Collapsed="true">
+    <Position X="10.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Messaging\GrossController\GrossEnclosure.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ErlezQue.Messaging.GrossController.GrossB01" Collapsed="true">
+    <Position X="5.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Messaging\GrossController\GrossHead.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ErlezQue.Messaging.GrossController.GrossB02" Collapsed="true">
+    <Position X="7.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Messaging\GrossController\GrossHeadRef.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ErlezQue.Messaging.GrossController.GrossB03" Collapsed="true">
+    <Position X="9" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Messaging\GrossController\GrossLine.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ErlezQue.Messaging.GrossController.GrossB04" Collapsed="true">
+    <Position X="10.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Messaging\GrossController\GrossLineAlc.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ErlezQue.Messaging.GrossController.GrossA01" Collapsed="true">
+    <Position X="5.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Messaging\GrossController\GrossAlc.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ErlezQue.Messaging.MessageController">
+    <Position X="8" Y="1.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAQAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Messaging\MessageController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ErlezQue.Mapper.Invoic.EdiOrders" Collapsed="true">
+    <Position X="6" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAACAAAAAgAAQAGAAAAwAggYAAAAIAAAAAAABIAAAAo=</HashCode>
+      <FileName>Mapper\Invoic\EdiInvoice.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

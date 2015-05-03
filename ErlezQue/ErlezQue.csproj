@@ -151,12 +151,14 @@
     <Compile Include="Domain\Tod.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Mapper\Orders\EdiIOrders.cs" />
+    <Compile Include="Mapper\Pricat\EdiIPricat.cs" />
     <Compile Include="Messaging\Esap20\Esap20.cs" />
     <Compile Include="Globals.cs" />
     <Compile Include="Infrastructure\DbDesign.cs" />
     <Compile Include="Infrastructure\DbController.cs" />
     <Compile Include="Infrastructure\DbContext.cs" />
-    <Compile Include="Mapper\Invoice\EdiInvoice.cs" />
+    <Compile Include="Mapper\Invoic\EdiInvoice.cs" />
     <Compile Include="Messaging\GrossController\GrossAlc.cs" />
     <Compile Include="Messaging\GrossController\GrossBet.cs" />
     <Compile Include="Messaging\GrossController\GrossCompany.cs" />
@@ -172,7 +174,7 @@
     <Compile Include="Messaging\GrossController\GrossSumTax.cs" />
     <Compile Include="Messaging\GrossController\GrossTdt.cs" />
     <Compile Include="Messaging\GrossController\GrossTod.cs" />
-    <Compile Include="Messaging\Esap20\Invoice.cs" />
+    <Compile Include="Messaging\Esap20\Invoic.cs" />
     <Compile Include="Messaging\MessageController.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -191,6 +193,7 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Model1.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <None Include="ClassDiagram1.cd" />
     <None Include="Domain\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>
